@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	print(dialog.size())
-	if index + 1 < dialog.size():
+	if index + 1 <= dialog.size():
 		index += 1
 	else:
 		print(canvas)

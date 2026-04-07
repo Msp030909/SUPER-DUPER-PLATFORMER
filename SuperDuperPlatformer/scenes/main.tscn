@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fryhmdqs8350" path="res://assets/New Piskel-1.png.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b0jt8we7485tv" path="res://scenes/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ba38a4mu0pdav" path="res://scenes/npc.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://cnist16jq11jg" path="res://scenes/hud.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://cnist16jq11jg" path="res://scripts/hud.gd" id="6_tefeu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
 
@@ -48,7 +48,7 @@ position = Vector2(0, -12)
 
 [node name="Node2D" parent="." unique_id=1526380673 instance=ExtResource("3_h2yge")]
 position = Vector2(168, -16)
-dialog = Array[String](["Hey man how you doing", "I gotta like do something today sorry can you go kill these guys for me", "thx"])
+dialog = Array[String](["Hey man how you doing", "I gotta like do something today sorry can you go kill these guys for me", "thanks man", "fodder dialogue"])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1085672464]
 script = ExtResource("6_tefeu")
