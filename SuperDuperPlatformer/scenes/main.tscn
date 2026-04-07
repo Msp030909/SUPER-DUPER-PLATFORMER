@@ -1,0 +1,60 @@
+[gd_scene format=4 uid="uid://c0auqeiejma47"]
+
+[ext_resource type="Script" uid="uid://chkp5ue4ixxeu" path="res://scripts/main.gd" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://fryhmdqs8350" path="res://assets/New Piskel-1.png.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b0jt8we7485tv" path="res://scenes/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ba38a4mu0pdav" path="res://scenes/npc.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://cnist16jq11jg" path="res://scenes/hud.gd" id="6_tefeu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
+texture = ExtResource("1_ig7tw")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_h2yge"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_0xm2m")
+sources/0 = SubResource("TileSetAtlasSource_0xm2m")
+
+[node name="Main" type="Node2D" unique_id=1629234350]
+script = ExtResource("1_1bvp3")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1556575527]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAD//wEAAAAAAAIAAAACAAEAAAACAAIAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAIAAAAKAAAAAAABAAAAAAAKAAEAAAABAAEAAAAKAAIAAAABAAIAAAALAAAAAAACAAAAAAALAAEAAAACAAEAAAALAAIAAAACAAIAAAAFAAAAAAADAAAAAAAGAAAAAAADAAAAAAA=")
+tile_set = SubResource("TileSet_h2yge")
+
+[node name="CharacterBody2D" parent="." unique_id=1740163399 instance=ExtResource("2_0xm2m")]
+position = Vector2(0, -12)
+
+[node name="Node2D" parent="." unique_id=1526380673 instance=ExtResource("3_h2yge")]
+position = Vector2(168, -16)
+dialog = Array[String](["Hey man how you doing", "I gotta like do something today sorry can you go kill these guys for me", "thx"])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1085672464]
+script = ExtResource("6_tefeu")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=112996388]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "THE UI IS WORKING"
+metadata/_edit_use_anchors_ = true

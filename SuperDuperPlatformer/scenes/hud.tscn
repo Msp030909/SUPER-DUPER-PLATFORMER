@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bedv1xcx5aacd"]
+
+[ext_resource type="Script" uid="uid://6gahfxqtm1lt" path="res://scenes/dialogue.gd" id="1_ahhtf"]
+
+[sub_resource type="Theme" id="Theme_n2snw"]
+RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2snw"]
+bg_color = Color(0.09019608, 0.09019608, 0.09019608, 0.31764707)
+
+[node name="Control" type="Control" unique_id=2111789826]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ahhtf")
+
+[node name="Control" type="Control" parent="." unique_id=2010475733]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_n2snw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=146441429]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer" unique_id=1187336246]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_n2snw")
+text = "
+"
+
+[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=1767703039]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Continue"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
