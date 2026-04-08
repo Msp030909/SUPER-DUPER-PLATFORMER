@@ -1,37 +1,37 @@
-[gd_scene format=3 uid="uid://basyafe6q1l2t"]
+[gd_scene format=3 uid="uid://bi1674rygvvh7"]
 
-[ext_resource type="Texture2D" uid="uid://bu0xnvs4hvqsq" path="res://assets/sprites/Goomba Enemy.png" id="1_21hcc"]
-[ext_resource type="Script" uid="uid://2t7quh5uq448" path="res://scenes/goomba.gd" id="1_s1jgw"]
+[ext_resource type="Script" uid="uid://2t7quh5uq448" path="res://scenes/goomba.gd" id="1_jke6y"]
+[ext_resource type="Texture2D" uid="uid://bu0xnvs4hvqsq" path="res://assets/sprites/Goomba Enemy.png" id="2_lwfim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21hcc"]
-atlas = ExtResource("1_21hcc")
+atlas = ExtResource("2_lwfim")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1jgw"]
-atlas = ExtResource("1_21hcc")
+atlas = ExtResource("2_lwfim")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fgpj4"]
-atlas = ExtResource("1_21hcc")
+atlas = ExtResource("2_lwfim")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0j8n"]
-atlas = ExtResource("1_21hcc")
+atlas = ExtResource("2_lwfim")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lml2"]
-atlas = ExtResource("1_21hcc")
+atlas = ExtResource("2_lwfim")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3hfl1"]
-atlas = ExtResource("1_21hcc")
+atlas = ExtResource("2_lwfim")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xltp"]
-atlas = ExtResource("1_21hcc")
+atlas = ExtResource("2_lwfim")
 region = Rect2(32, 64, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1xycq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yj1s3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -65,33 +65,34 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_21hcc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_508bv"]
 size = Vector2(22, 17)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1jgw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp31q"]
 size = Vector2(24, 10)
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=2074509749]
-script = ExtResource("1_s1jgw")
+[node name="Goomba" type="CharacterBody2D" unique_id=1725147179]
+collision_layer = 2
+script = ExtResource("1_jke6y")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319245677]
-sprite_frames = SubResource("SpriteFrames_1xycq")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049966870]
+sprite_frames = SubResource("SpriteFrames_yj1s3")
 animation = &"idle"
 autoplay = "moving"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=661065813]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1950563229]
 position = Vector2(0, 7.5)
-shape = SubResource("RectangleShape2D_21hcc")
+shape = SubResource("RectangleShape2D_508bv")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1762521104]
+[node name="Area2D" type="Area2D" parent="." unique_id=474303498]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1077504115]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1423143958]
 position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_s1jgw")
+shape = SubResource("RectangleShape2D_qp31q")
 debug_color = Color(0.99503726, 0, 0.21984771, 0.41960785)
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=264570137]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1738712266]
 position = Vector2(0, 3)
 target_position = Vector2(-47, 0)
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=2097283246]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1764099159]
