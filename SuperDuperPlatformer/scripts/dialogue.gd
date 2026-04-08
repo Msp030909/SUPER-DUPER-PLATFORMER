@@ -6,8 +6,8 @@ var index = 1
 signal dialogDone
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(dialog)
-	print(dialog.size())
+	#print(dialog)
+	#print(dialog.size())
 	pass # Replace with function body.
 
 
@@ -19,11 +19,11 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	print(dialog.size())
+	#print(dialog.size())
 	if index + 1 <= dialog.size():
 		index += 1
 	else:
-		print(canvas)
+		#print(canvas)
 		dialogDone.connect(canvas.on_dialog_done)
 		dialogDone.emit()
 		queue_free()

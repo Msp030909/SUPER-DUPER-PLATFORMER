@@ -5,7 +5,7 @@ signal playerNear(words)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(canvas)
+	#print(canvas)
 	pass # Replace with function body.
 
 
