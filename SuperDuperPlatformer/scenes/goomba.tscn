@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bi1674rygvvh7"]
 
-[ext_resource type="Script" uid="uid://2t7quh5uq448" path="res://scenes/goomba.gd" id="1_jke6y"]
+[ext_resource type="Script" uid="uid://2t7quh5uq448" path="res://scripts/goomba.gd" id="1_jke6y"]
 [ext_resource type="Texture2D" uid="uid://bu0xnvs4hvqsq" path="res://assets/sprites/Goomba Enemy.png" id="2_lwfim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21hcc"]
@@ -93,6 +93,14 @@ debug_color = Color(0.99503726, 0, 0.21984771, 0.41960785)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1738712266]
 position = Vector2(0, 3)
-target_position = Vector2(-47, 0)
+target_position = Vector2(-17, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1764099159]
+
+[node name="PlayerDamagerL" type="RayCast2D" parent="." unique_id=516752642]
+position = Vector2(0, 3)
+target_position = Vector2(-12, 0)
+
+[node name="PlayerDamagerR" type="RayCast2D" parent="." unique_id=2113732558]
+position = Vector2(0, 3)
+target_position = Vector2(12, 0)

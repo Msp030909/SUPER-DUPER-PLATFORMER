@@ -22,7 +22,3 @@ mesh = SubResource("QuadMesh_4flbx")
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("2_g2els")
-
-[node name="Timer" type="Timer" parent="." unique_id=375440464]
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
