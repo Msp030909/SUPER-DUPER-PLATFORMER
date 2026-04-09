@@ -1,3 +1,4 @@
+class_name Enemy
 extends CharacterBody2D
 @onready var player: CharacterBody2D = $"../Player"
 @onready var rayCast: RayCast2D = $RayCast2D
@@ -6,7 +7,6 @@ extends CharacterBody2D
 @export var damage = 20
 @export var knockback = 15
 @export var direction := 1
-var dying := false
 
 var already_collided: bool
 
@@ -21,12 +21,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if dying != true:
-		move(delta)
-		collide(delta)
-	pass
-	
-func collide(delta):
 	if playerDamagerL.is_colliding() == true and playerDamagerL.get_collider() is CharacterBody2D:
 		if !already_collided:
 			already_collided = true
@@ -47,6 +41,11 @@ func collide(delta):
 			print(direction)
 			rayCast.scale *= -1
 			$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
+	if is_on_floor():
+		position -= Vector2(speed * direction,0)
+	else:
+		velocity += get_gravity() * delta
+	move_and_slide()
 	pass
 	
 func hurtPlayer(orientation):
@@ -54,19 +53,3 @@ func hurtPlayer(orientation):
 		dealDamage.emit(damage,knockback * orientation)
 		dealDamage.disconnect(player.deal_damage)
 		pass
-
-func move(delta):
-	if is_on_floor():
-		position -= Vector2(speed * direction,0)
-	else:
-		velocity += get_gravity() * delta
-	move_and_slide()
-	pass
-
-
-func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
-	$AnimatedSprite2D.animation = "stomped"
-	dying = true
-	await get_tree().create_timer(5).timeout
-	queue_free()
-	pass # Replace with function body.
