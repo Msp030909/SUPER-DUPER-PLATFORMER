@@ -64,9 +64,9 @@ func move(delta):
 	pass
 
 
-func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
-	$AnimatedSprite2D.animation = "stomped"
-	dying = true
-	await get_tree().create_timer(5).timeout
-	queue_free()
-	pass # Replace with function body.
+#func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
+#	$AnimatedSprite2D.animation = "stomped"
+#	dying = true
+#	await get_tree().create_timer(5).timeout
+#	queue_free()
+#	pass # Replace with function body.

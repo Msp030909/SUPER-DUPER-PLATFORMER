@@ -125,6 +125,7 @@ shape = SubResource("RectangleShape2D_508bv")
 [node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("4_5lml2")]
 damage = 5.0
 health_component = NodePath("../HealthComponent")
+damage_type = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=410250853]
 position = Vector2(0, -3.5)
