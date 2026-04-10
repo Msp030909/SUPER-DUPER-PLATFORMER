@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@export var wepDamage: float
 const SPEED = 10000.0
 const JUMP_VELOCITY = -300.0
 
@@ -11,6 +11,7 @@ var health = 100
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	invulnerability(delta)
+	use_weapon()
 	pass
 
 func handle_movement(delta: float) -> void:
@@ -52,3 +53,8 @@ func deal_damage(damage, knockback):
 		print("this is the health now: ", health)
 		print(knockback)
 		invulnerable = true
+		
+func use_weapon():
+	if Input.is_action_just_pressed("action"):
+		$AttackComponent.attack(wepDamage)
+		print("tryna attack")
