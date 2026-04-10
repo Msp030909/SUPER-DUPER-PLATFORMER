@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("dialogue") and canDialog == true and inDialog != true:
+	if Input.is_action_just_pressed("dialogue") and canDialog == true and inDialog != true and storedDialog.size() >= 1:
 		start_dialog();
 		inDialog = true
 	pass
@@ -31,3 +31,5 @@ func start_dialog():
 
 func on_dialog_done():
 	inDialog = false
+	canDialog = false
+	storedDialog = []

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bt25a44grrd2j"]
+
+[ext_resource type="Script" uid="uid://cbmbrm8t7ry4f" path="res://scripts/attack_component.gd" id="1_svtj4"]
+
+[node name="AttackComponent" type="Area2D" unique_id=1535234396]
+script = ExtResource("1_svtj4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

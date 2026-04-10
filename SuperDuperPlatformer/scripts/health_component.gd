@@ -25,4 +25,4 @@ func damage(attack,anim):
 			get_parent().dying = true
 			print("dying is true now")
 		await get_tree().create_timer(5).timeout
-		queue_free()
+		get_parent().queue_free()

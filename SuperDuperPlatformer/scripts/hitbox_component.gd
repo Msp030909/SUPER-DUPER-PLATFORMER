@@ -1,5 +1,5 @@
 extends Area2D
-@export var damage: float
+@export var stompDamage: float
 @export var health_component: HealthComponent
 enum damage_types { CONTACT, WEAPON}
 @export var damage_type: damage_types
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: CharacterBody2D) -> void:
 	match damage_type:
 		damage_types.CONTACT:
-			health_component.damage(damage,"stomped")
+			health_component.damage(stompDamage,"stomped")
 		_:
 			print("you forgot to set the damage type silly")
 	pass # Replace with function body.

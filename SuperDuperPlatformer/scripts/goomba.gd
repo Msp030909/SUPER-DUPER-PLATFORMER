@@ -63,6 +63,10 @@ func move(delta):
 	move_and_slide()
 	pass
 
+func on_attack(damage):
+	print("the attack is working")
+	$HealthComponent.damage(damage,"dead")
+	pass
 
 #func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 #	$AnimatedSprite2D.animation = "stomped"

@@ -6,10 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/hitbox_component.tscn" id="4_5lml2"]
 [ext_resource type="PackedScene" uid="uid://25y0qpocwua4" path="res://scenes/health_component.tscn" id="4_l0j8n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_an03s"]
-atlas = ExtResource("3_fgpj4")
-region = Rect2(0, 64, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_21hcc"]
 atlas = ExtResource("2_lwfim")
 region = Rect2(0, 0, 32, 32)
@@ -50,16 +46,12 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("3_fgpj4")
 region = Rect2(32, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_an03s"]
+atlas = ExtResource("3_fgpj4")
+region = Rect2(0, 64, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yj1s3"]
 animations = [{
-"frames": [{
-"duration": 10.0,
-"texture": SubResource("AtlasTexture_an03s")
-}],
-"loop": true,
-"name": &"dead",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_21hcc")
@@ -117,13 +109,14 @@ size = Vector2(20, 5)
 
 [node name="Goomba" type="CharacterBody2D" unique_id=1725147179]
 collision_layer = 2
-floor_max_angle = 0.0
 script = ExtResource("1_jke6y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049966870]
 sprite_frames = SubResource("SpriteFrames_yj1s3")
-animation = &"dead"
+animation = &"stomped"
 autoplay = "moving"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1950563229]
 position = Vector2(0, 7.5)
@@ -154,7 +147,6 @@ position = Vector2(0, 3)
 target_position = Vector2(12, 0)
 
 [node name="HealthComponent" parent="." unique_id=1212428773 node_paths=PackedStringArray("animatedSprite2D") instance=ExtResource("4_l0j8n")]
-MAX_HEALTH = null
 animatedSprite2D = NodePath("../AnimatedSprite2D")
 
 [connection signal="body_entered" from="HitboxComponent" to="." method="_on_area_2d_body_entered"]

@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://b4d3o55j000jr" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bndjj0353ucat" path="res://scripts/camera.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/attack_component.tscn" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_4flbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(20, 30)
 
 [node name="Player" type="CharacterBody2D" unique_id=1740163399]
 collision_mask = 3
@@ -22,3 +26,11 @@ mesh = SubResource("QuadMesh_4flbx")
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("2_g2els")
+
+[node name="AttackComponent" parent="." unique_id=1535234396 instance=ExtResource("3_qhqgy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=109039512]
+position = Vector2(21, 0)
+shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AttackComponent" unique_id=2071374719]
