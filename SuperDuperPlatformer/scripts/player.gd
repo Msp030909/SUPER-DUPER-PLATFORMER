@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @export var wepDamage: float
+@export var wepKnockback: float
 const SPEED = 10000.0
 const JUMP_VELOCITY = -300.0
 
@@ -42,7 +43,7 @@ func invulnerability(delta:float) -> void:
 	if inv_timer <= 0:
 		invulnerable = false
 		inv_timer = 1
-		print("time up")
+		#print("time up")
 		self.modulate = Color.WHITE
 	pass
 
@@ -56,5 +57,5 @@ func deal_damage(damage, knockback):
 		
 func use_weapon():
 	if Input.is_action_just_pressed("action"):
-		$AttackComponent.attack(wepDamage)
-		print("tryna attack")
+		$AttackComponent.attack(wepDamage, wepKnockback)
+		#print("tryna attack")

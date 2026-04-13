@@ -11,31 +11,28 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if sprites:
-		if sprites.animation_finished:
-			sprites.animation = "idle"
 	pass
+	
+func attack(damage, knockback):
+	#print("attack registered but no recipient")
+	if sprites:
+			sprites.play("attack")
+	if recipient:
+		#print("attacking, there is a recipient")
+		attack_node.connect(recipient.on_attack)
+		attack_node.emit(damage, knockback * int(scale.x))
+		attack_node.disconnect(recipient.on_attack)
+		#print("attacking")
+	
+		pass
 
 
-func _on_body_entered(body: CharacterBody2D) -> void:
-	#print(body)
-	recipient = body
+func _on_area_entered(area: hitboxComponent) -> void:
+	recipient = area
 	print(recipient)
 	pass # Replace with function body.
 
 
-func _on_body_exited(body: CharacterBody2D) -> void:
+func _on_area_exited(area: hitboxComponent) -> void:
 	recipient = null
 	pass # Replace with function body.
-	
-func attack(damage):
-	print("attack registered but no recipient")
-	if recipient:
-		print("attacking, there is a recipient")
-		if sprites:
-			sprites.animation = "attack"
-			print("we be changing animations")
-		attack_node.connect(recipient.on_attack)
-		attack_node.emit(damage)
-		attack_node.disconnect(recipient.on_attack)
-		print("attacking")

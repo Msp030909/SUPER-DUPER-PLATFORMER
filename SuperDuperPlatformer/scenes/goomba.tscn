@@ -132,6 +132,7 @@ position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_508bv")
 
 [node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("4_5lml2")]
+collision_layer = 3
 stompDamage = 10.0
 health_component = NodePath("../HealthComponent")
 
@@ -156,7 +157,7 @@ position = Vector2(0, 3)
 target_position = Vector2(12, 0)
 
 [node name="HealthComponent" parent="." unique_id=1212428773 node_paths=PackedStringArray("animatedSprite2D") instance=ExtResource("4_l0j8n")]
-MAX_HEALTH = null
 animatedSprite2D = NodePath("../AnimatedSprite2D")
 
+[connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
 [connection signal="body_entered" from="HitboxComponent" to="." method="_on_area_2d_body_entered"]

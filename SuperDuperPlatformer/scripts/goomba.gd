@@ -1,6 +1,8 @@
+extends CharacterBody2D
+
+
 class_name Enemy
 
-extends CharacterBody2D
 @onready var player: CharacterBody2D = $"../Player"
 @onready var rayCast: RayCast2D = $RayCast2D
 @onready var playerDamagerL: RayCast2D = $PlayerDamagerL
@@ -65,9 +67,10 @@ func move(delta):
 	move_and_slide()
 	pass
 
-func on_attack(damage):
-	print("the attack is working")
-	$HealthComponent.damage(damage,"dead")
+func on_attack(knockback):
+	velocity = Vector2.ZERO
+	position.x += knockback
+	move_and_slide()
 	pass
 
 #func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
