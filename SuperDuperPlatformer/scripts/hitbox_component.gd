@@ -5,7 +5,8 @@ class_name hitboxComponent
 @export var health_component: HealthComponent
 enum damage_types { CONTACT, WEAPON}
 @export var damage_type: damage_types
-signal attacked
+@export var knockbackAffected: bool
+@export var knockback: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,11 +25,10 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	
 func on_attack(damage, knockback):
 	health_component.damage(damage, "dead")
-	print("you forgot to set the damage type silly")
-	if get_parent().has_method("on_attack"):
-		attacked.connect(get_parent().on_attack)
-		attacked.emit(knockback)
-		attacked.disconnect(get_parent().on_attack)
+	if knockbackAffected == true:
+			get_parent().velocity = Vector2.ZERO
+			get_parent().position.x += knockback
+			get_parent().move_and_slide()
 		
 	
 			

@@ -67,12 +67,6 @@ func move(delta):
 	move_and_slide()
 	pass
 
-func on_attack(knockback):
-	velocity = Vector2.ZERO
-	position.x += knockback
-	move_and_slide()
-	pass
-
 #func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 #	$AnimatedSprite2D.animation = "stomped"
 #	dying = true

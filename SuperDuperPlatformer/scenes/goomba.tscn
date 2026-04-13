@@ -135,6 +135,7 @@ shape = SubResource("RectangleShape2D_508bv")
 collision_layer = 3
 stompDamage = 10.0
 health_component = NodePath("../HealthComponent")
+knockbackAffected = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=410250853]
 position = Vector2(0, -3.5)

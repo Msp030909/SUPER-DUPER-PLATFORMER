@@ -10,6 +10,10 @@ var alr_inv := false
 var health = 100
 
 func _physics_process(delta: float) -> void:
+	if velocity.x > 0:
+		$AttackComponent.scale.x = 1
+	elif velocity.x < 0:
+		$AttackComponent.scale.x = -1 
 	handle_movement(delta)
 	invulnerability(delta)
 	use_weapon()

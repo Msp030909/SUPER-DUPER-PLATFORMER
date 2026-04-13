@@ -3,6 +3,7 @@ class_name HealthComponent
 extends Node2D
 @export var MAX_HEALTH := 10.0
 @export var animatedSprite2D := AnimatedSprite2D
+
 var deathcause
 
 var health : float

@@ -29,7 +29,7 @@ func attack(damage, knockback):
 
 func _on_area_entered(area: hitboxComponent) -> void:
 	recipient = area
-	print(recipient)
+	#print(recipient)
 	pass # Replace with function body.
 
 
