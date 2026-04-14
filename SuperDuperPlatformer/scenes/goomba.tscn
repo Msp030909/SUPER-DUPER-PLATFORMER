@@ -152,10 +152,12 @@ hit_from_inside = true
 [node name="PlayerDamagerL" type="RayCast2D" parent="." unique_id=516752642]
 position = Vector2(0, 3)
 target_position = Vector2(-12, 0)
+collide_with_areas = true
 
 [node name="PlayerDamagerR" type="RayCast2D" parent="." unique_id=2113732558]
 position = Vector2(0, 3)
 target_position = Vector2(12, 0)
+collide_with_areas = true
 
 [node name="HealthComponent" parent="." unique_id=1212428773 node_paths=PackedStringArray("animatedSprite2D") instance=ExtResource("4_l0j8n")]
 animatedSprite2D = NodePath("../AnimatedSprite2D")

@@ -4,6 +4,8 @@ extends Node2D
 @export var MAX_HEALTH := 10.0
 @export var animatedSprite2D := AnimatedSprite2D
 @export var HAS_INV: bool
+var invulnerable := false
+var inv_timer: float = 1
 
 var deathcause
 
@@ -17,6 +19,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if HAS_INV: 
+		invulnerability(delta)
+	
 	if health <= 0:
 		animatedSprite2D.animation = str(deathcause)
 		if "dying" in get_parent():
@@ -27,6 +33,24 @@ func _process(delta: float) -> void:
 	pass
 
 func damage(attack,anim):
-	health -= attack
-	deathcause = anim
+	if invulnerable == false:
+		health -= attack
+		deathcause = anim
+		print("this is the health now: ", health)
+		if HAS_INV:
+			invulnerable = true
+	
+	pass
+	
+func invulnerability(delta):
+	if invulnerable == true:
+		inv_timer -= 1 * delta
+		#print(inv_timer)
+		get_parent().modulate = Color.YELLOW
+	if inv_timer <= 0:
+		invulnerable = false
+		inv_timer = 1
+		#print("time up")
+		get_parent().modulate = Color.WHITE
+	pass
 	

@@ -40,24 +40,13 @@ func handle_movement(delta: float) -> void:
 	pass
 	
 func invulnerability(delta:float) -> void:
-	if invulnerable == true:
-		inv_timer -= 1 * delta
-		#print(inv_timer)
-		self.modulate = Color.YELLOW
-	if inv_timer <= 0:
-		invulnerable = false
-		inv_timer = 1
-		#print("time up")
-		self.modulate = Color.WHITE
+
 	pass
 
 func deal_damage(damage, knockback):
-	if invulnerable != true:
-		health -= damage
-		position.x -= knockback
-		print("this is the health now: ", health)
-		print(knockback)
-		invulnerable = true
+	$HitboxComponent.on_attack(damage,knockback)
+	pass
+
 		
 func use_weapon():
 	if Input.is_action_just_pressed("action"):

@@ -77,7 +77,6 @@ autoplay = "aidle"
 [node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("6_tuyoq")]
 health_component = NodePath("../HealthComponent")
 damage_type = 1
-knockbackAffected = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=273978679]
 shape = SubResource("RectangleShape2D_fjrip")

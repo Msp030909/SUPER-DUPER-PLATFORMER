@@ -6,7 +6,7 @@ class_name hitboxComponent
 enum damage_types { CONTACT, WEAPON}
 @export var damage_type: damage_types
 @export var knockbackAffected: bool
-@export var knockback: float
+#@export var knockback: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +19,9 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: CharacterBody2D) -> void:
-	health_component.damage(stompDamage,"stomped")
+	match damage_types:
+		damage_types.CONTACT: 
+			health_component.damage(stompDamage,"stomped")
 	pass # Replace with function body.
 	
 	

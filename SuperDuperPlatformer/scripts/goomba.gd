@@ -7,7 +7,7 @@ class_name Enemy
 @onready var playerDamagerL: RayCast2D = $PlayerDamagerL
 @onready var playerDamagerR: RayCast2D = $PlayerDamagerR
 @export var damage = 20
-@export var knockback = 15
+@export var knockback = -15
 @export var direction := 1
 var dying := false
 
@@ -45,8 +45,9 @@ func collide(delta):
 		else:
 			already_collided = false
 		#this is NOT super optimized I don't like this very much but it's the simplest way to do collision
-	if rayCast.is_colliding() == true:
-		if rayCast.get_collider() is not hitboxComponent:
+	elif rayCast.is_colliding() == true:
+		#print(rayCast.get_collider())
+		if rayCast.get_collider() is not CharacterBody2D:
 			direction = -direction
 			print("direction should be switched now")
 			print(direction)
