@@ -153,32 +153,24 @@ hit_from_inside = true
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1764099159]
 
-[node name="PlayerDamagerL" type="RayCast2D" parent="." unique_id=516752642]
-position = Vector2(0, 3)
-target_position = Vector2(-12, 0)
-collide_with_areas = true
-
-[node name="PlayerDamagerR" type="RayCast2D" parent="." unique_id=2113732558]
-position = Vector2(0, 3)
-target_position = Vector2(12, 0)
-collide_with_areas = true
-
 [node name="HealthComponent" parent="." unique_id=1212428773 node_paths=PackedStringArray("animatedSprite2D") instance=ExtResource("4_l0j8n")]
 animatedSprite2D = NodePath("../AnimatedSprite2D")
 
-[node name="AttackComponent" parent="." unique_id=1535234396 instance=ExtResource("6_3hfl1")]
+[node name="playerDamagerL" parent="." unique_id=1535234396 instance=ExtResource("6_3hfl1")]
 position = Vector2(0, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1166201721]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDamagerL" unique_id=1166201721]
 position = Vector2(-19.5, 0)
 shape = SubResource("RectangleShape2D_6xltp")
 
-[node name="AttackComponent2" parent="." unique_id=589300143 instance=ExtResource("6_3hfl1")]
+[node name="playerDamagerR" parent="." unique_id=589300143 instance=ExtResource("6_3hfl1")]
 position = Vector2(0, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent2" unique_id=1399206088]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDamagerR" unique_id=1399206088]
 position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_6xltp")
 
 [connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
 [connection signal="body_entered" from="HitboxComponent" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="playerDamagerL" to="." method="_on_player_damager_l_area_entered"]
+[connection signal="body_entered" from="playerDamagerR" to="." method="_on_player_damager_r_body_entered"]

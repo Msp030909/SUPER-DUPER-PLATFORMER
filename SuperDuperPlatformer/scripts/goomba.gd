@@ -32,20 +32,20 @@ func _process(delta: float) -> void:
 	pass
 	
 func collide(delta):
-	if playerDamagerL.is_colliding() == true and playerDamagerL.get_collider() is hitboxComponent:
-		if !already_collided:
-			already_collided = true
-			hurtPlayer(1)
-		else:
-			already_collided = false
-	elif playerDamagerR.is_colliding() == true and playerDamagerR.get_collider() is hitboxComponent:
-		if !already_collided:
-			already_collided = true
-			hurtPlayer(-1)
-		else:
-			already_collided = false
+	#if playerDamagerL.is_colliding() == true and playerDamagerL.get_collider() is hitboxComponent:
+		#if !already_collided:
+			#already_collided = true
+			#hurtPlayer(1)
+		#else:
+			#already_collided = false
+	#elif playerDamagerR.is_colliding() == true and playerDamagerR.get_collider() is hitboxComponent:
+		#if !already_collided:
+			#already_collided = true
+			#hurtPlayer(-1)
+		#else:
+			#already_collided = false
 		#this is NOT super optimized I don't like this very much but it's the simplest way to do collision
-	elif rayCast.is_colliding() == true:
+	if rayCast.is_colliding() == true:
 		#print(rayCast.get_collider())
 		if rayCast.get_collider() is not CharacterBody2D:
 			direction = -direction
@@ -75,3 +75,13 @@ func move(delta):
 #	await get_tree().create_timer(5).timeout
 #	queue_free()
 #	pass # Replace with function body.
+
+
+func _on_player_damager_l_area_entered(area: hitboxComponent) -> void:
+	$playerDamagerL.attack(damage,knockback)
+	pass # Replace with function body.
+
+
+func _on_player_damager_r_body_entered(body: hitboxComponent) -> void:
+	$playerDamagerR.attack(damage,knockback)
+	pass # Replace with function body.
