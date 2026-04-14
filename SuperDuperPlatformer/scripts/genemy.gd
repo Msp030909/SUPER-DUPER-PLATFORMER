@@ -1,5 +1,7 @@
-class_name Enemy
 extends CharacterBody2D
+
+#class_name Enemy
+
 @onready var player: CharacterBody2D = $"../Player"
 @onready var rayCast: RayCast2D = $RayCast2D
 @onready var playerDamagerL: RayCast2D = $PlayerDamagerL
