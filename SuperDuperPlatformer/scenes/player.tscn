@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/attack_component.tscn" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c4t14jv531llf" path="res://assets/sprites/Slasholder.png" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/hitbox_component.tscn" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="7_fjrip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 
@@ -68,6 +70,17 @@ position = Vector2(22, 0)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
 animation = &"aidle"
 autoplay = "aidle"
+
+[node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("6_tuyoq")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=265144341]
+shape = SubResource("RectangleShape2D_sh265")
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=919008796]
+script = ExtResource("7_fjrip")
+MAX_HEALTH = 100.0
+metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
 
 [connection signal="area_entered" from="AttackComponent" to="AttackComponent" method="_on_area_entered"]
 [connection signal="area_exited" from="AttackComponent" to="AttackComponent" method="_on_area_exited"]

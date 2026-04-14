@@ -32,13 +32,13 @@ func _process(delta: float) -> void:
 	pass
 	
 func collide(delta):
-	if playerDamagerL.is_colliding() == true and playerDamagerL.get_collider() is CharacterBody2D:
+	if playerDamagerL.is_colliding() == true and playerDamagerL.get_collider() is hitboxComponent:
 		if !already_collided:
 			already_collided = true
 			hurtPlayer(1)
 		else:
 			already_collided = false
-	elif playerDamagerR.is_colliding() == true and playerDamagerR.get_collider() is CharacterBody2D:
+	elif playerDamagerR.is_colliding() == true and playerDamagerR.get_collider() is hitboxComponent:
 		if !already_collided:
 			already_collided = true
 			hurtPlayer(-1)
@@ -46,7 +46,7 @@ func collide(delta):
 			already_collided = false
 		#this is NOT super optimized I don't like this very much but it's the simplest way to do collision
 	if rayCast.is_colliding() == true:
-		if rayCast.get_collider() is not CharacterBody2D:
+		if rayCast.get_collider() is not hitboxComponent:
 			direction = -direction
 			print("direction should be switched now")
 			print(direction)
