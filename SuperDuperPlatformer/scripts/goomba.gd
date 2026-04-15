@@ -83,8 +83,7 @@ func _on_player_damager_l_area_entered(area: hitboxComponent) -> void:
 	#print("area entered, trying to use attack func")
 	pass # Replace with function body.
 
-
-func _on_player_damager_r_body_entered(body: hitboxComponent) -> void:
+func _on_player_damager_r_area_entered(area: hitboxComponent) -> void:
 	if dying != true:
 		$playerDamagerR.attack(damage,knockback)
 	pass # Replace with function body.

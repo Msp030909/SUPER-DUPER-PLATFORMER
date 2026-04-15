@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var wepDamage: float
 @export var wepKnockback: float
-const SPEED = 10000.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
 var inv_timer: float= 1
@@ -32,7 +32,7 @@ func handle_movement(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("moveL", "moveR")
 	if direction:
-		velocity.x = direction * SPEED * delta
+		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()

@@ -117,7 +117,7 @@ size = Vector2(22, 17)
 size = Vector2(20, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xltp"]
-size = Vector2(3.5, 19)
+size = Vector2(3.5, 10)
 
 [node name="Goomba" type="CharacterBody2D" unique_id=1725147179]
 collision_layer = 2
@@ -135,7 +135,7 @@ shape = SubResource("RectangleShape2D_508bv")
 
 [node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("4_5lml2")]
 collision_layer = 2
-stompDamage = 10.0
+stompDamage = 5.0
 health_component = NodePath("../HealthComponent")
 knockbackAffected = true
 
@@ -153,13 +153,15 @@ hit_from_inside = true
 
 [node name="HealthComponent" parent="." unique_id=1212428773 node_paths=PackedStringArray("animatedSprite2D") instance=ExtResource("4_l0j8n")]
 animatedSprite2D = NodePath("../AnimatedSprite2D")
+HAS_INV = true
+MAX_INV = 1.0
 
 [node name="playerDamagerL" parent="." unique_id=1535234396 instance=ExtResource("6_3hfl1")]
 position = Vector2(0, 3)
 MAX_CD = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerDamagerL" unique_id=1166201721]
-position = Vector2(-13.25, 3)
+position = Vector2(-13.25, 4)
 shape = SubResource("RectangleShape2D_6xltp")
 
 [node name="playerDamagerR" parent="." unique_id=589300143 instance=ExtResource("6_3hfl1")]
@@ -167,10 +169,10 @@ position = Vector2(0, 3)
 MAX_CD = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerDamagerR" unique_id=1399206088]
-position = Vector2(11.25, 3)
+position = Vector2(13.25, 4.25)
 shape = SubResource("RectangleShape2D_6xltp")
 
 [connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
 [connection signal="body_entered" from="HitboxComponent" to="." method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="playerDamagerL" to="." method="_on_player_damager_l_area_entered"]
-[connection signal="body_entered" from="playerDamagerR" to="." method="_on_player_damager_r_body_entered"]
+[connection signal="area_entered" from="playerDamagerR" to="." method="_on_player_damager_r_area_entered"]
