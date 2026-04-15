@@ -5,5 +5,5 @@
 [node name="AttackComponent" type="Area2D" unique_id=1535234396]
 script = ExtResource("1_svtj4")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -5,7 +5,9 @@ extends Node2D
 @export var animatedSprite2D := AnimatedSprite2D
 @export var HAS_INV: bool
 var invulnerable := false
-var inv_timer: float = 1
+var inv_timer: float
+@export var MAX_INV: float
+
 
 var deathcause
 
@@ -49,7 +51,7 @@ func invulnerability(delta):
 		get_parent().modulate = Color.YELLOW
 	if inv_timer <= 0:
 		invulnerable = false
-		inv_timer = 1
+		inv_timer = MAX_INV
 		#print("time up")
 		get_parent().modulate = Color.WHITE
 	pass

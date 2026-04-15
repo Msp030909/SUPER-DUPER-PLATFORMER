@@ -79,6 +79,7 @@ func move(delta):
 
 func _on_player_damager_l_area_entered(area: hitboxComponent) -> void:
 	$playerDamagerL.attack(damage,knockback)
+	print("area entered, trying to use attack func")
 	pass # Replace with function body.
 
 

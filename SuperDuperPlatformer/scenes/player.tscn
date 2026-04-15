@@ -86,7 +86,5 @@ shape = SubResource("RectangleShape2D_fjrip")
 script = ExtResource("7_fjrip")
 MAX_HEALTH = 100.0
 HAS_INV = true
+MAX_INV = 10.0
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
-
-[connection signal="area_entered" from="AttackComponent" to="AttackComponent" method="_on_area_entered"]
-[connection signal="area_exited" from="AttackComponent" to="AttackComponent" method="_on_area_exited"]

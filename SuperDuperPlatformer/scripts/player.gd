@@ -45,6 +45,7 @@ func invulnerability(delta:float) -> void:
 
 func deal_damage(damage, knockback):
 	$HitboxComponent.on_attack(damage,knockback)
+	print("I be doin this")
 	pass
 
 		
