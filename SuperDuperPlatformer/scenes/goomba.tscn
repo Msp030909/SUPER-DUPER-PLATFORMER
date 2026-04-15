@@ -126,10 +126,8 @@ script = ExtResource("1_jke6y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049966870]
 sprite_frames = SubResource("SpriteFrames_yj1s3")
-animation = &"stomped"
+animation = &"dead"
 autoplay = "moving"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1950563229]
 position = Vector2(0, 7.5)
@@ -142,7 +140,7 @@ health_component = NodePath("../HealthComponent")
 knockbackAffected = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=410250853]
-position = Vector2(0, -3.5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_5lml2")
 debug_color = Color(0.99503726, 0, 0.21984771, 0.41960785)
 

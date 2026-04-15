@@ -63,6 +63,7 @@ script = ExtResource("2_g2els")
 collision_layer = 5
 collision_mask = 2
 sprites = NodePath("WeaponSprites")
+MAX_CD = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=109039512]
 position = Vector2(21, 0)
@@ -86,5 +87,5 @@ shape = SubResource("RectangleShape2D_fjrip")
 script = ExtResource("7_fjrip")
 MAX_HEALTH = 100.0
 HAS_INV = true
-MAX_INV = 10.0
+MAX_INV = 3.0
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"

@@ -19,9 +19,12 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: CharacterBody2D) -> void:
+	print("I'm doin this")
 	match damage_types:
 		damage_types.CONTACT: 
 			health_component.damage(stompDamage,"stomped")
+		_:
+			print("no damage type")
 	pass # Replace with function body.
 	
 	
