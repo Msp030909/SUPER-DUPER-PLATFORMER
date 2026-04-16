@@ -109,7 +109,7 @@ tile_set = SubResource("TileSet_h2yge")
 [node name="Player" parent="." unique_id=1740163399 instance=ExtResource("2_0xm2m")]
 position = Vector2(0, -12)
 
-[node name="Node2D" parent="." unique_id=1526380673 instance=ExtResource("3_h2yge")]
+[node name="NPC_2" parent="." unique_id=1526380673 instance=ExtResource("3_h2yge")]
 position = Vector2(168, -16)
 dialog = Array[String](["Hey man how you doing", "I gotta like do something today sorry can you go kill these guys for me", "thanks man", "fodder dialogue"])
 
@@ -122,7 +122,7 @@ offset_bottom = 23.0
 text = "THE UI IS WORKING"
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D2" parent="." unique_id=622819703 instance=ExtResource("3_h2yge")]
+[node name="NPC" parent="." unique_id=622819703 instance=ExtResource("3_h2yge")]
 position = Vector2(97, -17)
 dialog = Array[String](["Test"])
 

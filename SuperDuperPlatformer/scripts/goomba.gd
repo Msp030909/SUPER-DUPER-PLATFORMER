@@ -55,11 +55,11 @@ func collide(delta):
 			$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
 	pass
 	
-func hurtPlayer(orientation):
-		dealDamage.connect(player.deal_damage)
-		dealDamage.emit(damage,knockback * orientation)
-		dealDamage.disconnect(player.deal_damage)
-		pass
+#func hurtPlayer(orientation):
+		#dealDamage.connect(player.deal_damage)
+		#dealDamage.emit(damage,knockback * orientation)
+		#dealDamage.disconnect(player.deal_damage)
+		#pass
 
 func move(delta):
 	if is_on_floor():
@@ -79,7 +79,7 @@ func move(delta):
 
 func _on_player_damager_l_area_entered(area: hitboxComponent) -> void:
 	if dying != true:
-		$playerDamagerL.attack(damage,knockback)
+		$playerDamagerL.attack(damage,knockback * -1)
 	#print("area entered, trying to use attack func")
 	pass # Replace with function body.
 

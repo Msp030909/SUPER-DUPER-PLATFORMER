@@ -26,7 +26,8 @@ func _process(delta: float) -> void:
 		invulnerability(delta)
 	
 	if health <= 0:
-		animatedSprite2D.animation = str(deathcause)
+		if animatedSprite2D:
+			animatedSprite2D.animation = str(deathcause)
 		if "dying" in get_parent():
 			get_parent().dying = true
 			# print("dying is true now")
