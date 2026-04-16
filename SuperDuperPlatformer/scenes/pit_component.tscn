@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://co1vge4s4scfa"]
+
+[ext_resource type="Script" uid="uid://eeahys80u248" path="res://scripts/pit_component.gd" id="1_vo88n"]
+
+[node name="PitComponent" type="Area2D" unique_id=1124729358]
+script = ExtResource("1_vo88n")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
