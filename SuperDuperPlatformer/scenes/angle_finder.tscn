@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dm4hc2fya736f"]
+
+[ext_resource type="Script" uid="uid://cj7jgq0laqd6n" path="res://scenes/angle_finder.gd" id="1_1k6mc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tipki"]
+
+[node name="AngleFinder" type="Node2D" unique_id=2051327033]
+script = ExtResource("1_1k6mc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1260094731]
+position = Vector2(20, -1.4901161e-08)
+scale = Vector2(-40.500004, -0.7297298)
+mesh = SubResource("BoxMesh_tipki")

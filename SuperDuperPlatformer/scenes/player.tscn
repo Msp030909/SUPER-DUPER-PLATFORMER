@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/hitbox_component.tscn" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="7_fjrip"]
+[ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="8_smehm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 
@@ -89,3 +90,5 @@ MAX_HEALTH = 100.0
 HAS_INV = true
 MAX_INV = 1.0
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
+
+[node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("8_smehm")]
