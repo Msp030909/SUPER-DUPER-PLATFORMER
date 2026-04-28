@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://b0jt8we7485tv"]
+
+[ext_resource type="Script" uid="uid://b4d3o55j000jr" path="res://scripts/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bndjj0353ucat" path="res://scripts/camera.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/attack_component.tscn" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://c4t14jv531llf" path="res://assets/sprites/Slasholder.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/hitbox_component.tscn" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="7_fjrip"]
+[ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="8_smehm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4flbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(32, 72, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"aidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
+size = Vector2(22, 22)
+
+[node name="Player" type="CharacterBody2D" unique_id=1740163399]
+collision_mask = 3
+script = ExtResource("1_4flbx")
+wepDamage = 2.0
+wepKnockback = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728889429]
+shape = SubResource("RectangleShape2D_sh265")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=149842206]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_4flbx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=704098716]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("2_g2els")
+
+[node name="AttackComponent" parent="." unique_id=1535234396 node_paths=PackedStringArray("sprites") instance=ExtResource("3_qhqgy")]
+collision_layer = 5
+collision_mask = 2
+sprites = NodePath("WeaponSprites")
+MAX_CD = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=109039512]
+position = Vector2(21, 0)
+shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent" unique_id=2071374719]
+position = Vector2(22, 0)
+sprite_frames = SubResource("SpriteFrames_qhqgy")
+animation = &"aidle"
+autoplay = "aidle"
+
+[node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("6_tuyoq")]
+health_component = NodePath("../HealthComponent")
+damage_type = 1
+knockbackAffected = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=273978679]
+shape = SubResource("RectangleShape2D_fjrip")
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=919008796]
+script = ExtResource("7_fjrip")
+MAX_HEALTH = 100.0
+HAS_INV = true
+MAX_INV = 1.0
+metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
+
+[node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("8_smehm")]

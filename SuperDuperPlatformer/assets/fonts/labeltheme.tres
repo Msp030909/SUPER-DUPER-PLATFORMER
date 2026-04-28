@@ -1,0 +1,21 @@
+[gd_resource type="Theme" format=3 uid="uid://wbrk22i2h7by"]
+
+[ext_resource type="FontFile" uid="uid://bf4cpid6hlycr" path="res://assets/fonts/Jersey_25/Jersey25-Regular.ttf" id="1_47tqu"]
+[ext_resource type="FontFile" uid="uid://dfv0lsvfvddiv" path="res://assets/fonts/Jersey_10/Jersey10-Regular.ttf" id="2_igaij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47tqu"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 0.6509804)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igaij"]
+corner_detail = 1
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/styles/normal = SubResource("StyleBoxFlat_47tqu")
+Button/styles/pressed = SubResource("StyleBoxFlat_igaij")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/font_sizes/bold_font_size = 32
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/bold_font = ExtResource("1_47tqu")
+RichTextLabel/fonts/normal_font = ExtResource("2_igaij")
