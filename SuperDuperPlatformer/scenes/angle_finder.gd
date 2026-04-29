@@ -11,17 +11,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var angle = atan2(get_global_mouse_position().y,get_global_mouse_position().x)
-	rotation = lerp_angle(angle,rotation, delta)
+	var angle = global_rotation_degrees
+	
+	look_at(get_global_mouse_position())
+	#rotation = lerp_angle(rotation,angle, delta)
 	var rangle = round(angle)
 	print(rangle)
-	if rangle == 0:
+	if rangle >= -30 and rangle <= 30:
 		dir = angles.FORWARD
 		print("forwards")
-	elif rangle <= -1 and rangle >= -2:
+	elif rangle <= -41 and rangle >= -133:
 		dir = angles.UP
 		print("up")
-	elif rangle >= 3 or rangle <= -3:
+	elif rangle <= 31 or rangle >= 120:
 		dir = angles.BACKWARD
 		print("back")
 	else:
