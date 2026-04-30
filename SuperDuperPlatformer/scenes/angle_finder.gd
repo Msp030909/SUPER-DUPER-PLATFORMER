@@ -1,7 +1,7 @@
 extends Node2D
 var ypos
 var xpos
-var dir
+var dir: String
 enum angles { FORWARD, BACKWARD, UP, DOWN }
 @export var trackPlayer := true
 
@@ -19,17 +19,17 @@ func _process(delta: float) -> void:
 		look_at($"../../Player".global_position)
 	#rotation = lerp_angle(rotation,angle, delta)
 	var rangle = round(angle)
-	print(rangle)
+	#print(rangle)
 	if rangle >= -30 and rangle <= 30:
-		dir = angles.FORWARD
-		print("forwards")
+		dir = "forwards"
+		#print("forwards")
 	elif rangle <= -41 and rangle >= -133:
-		dir = angles.UP
-		print("up")
+		dir = "up"
+		#print("up")
 	elif rangle <= 31 or rangle >= 120:
-		dir = angles.BACKWARD
-		print("back")
+		dir = "backwards"
+		#print("back")
 	else:
-		dir = angles.DOWN
-		print("down")
+		dir = "down"
+		#print("down")
 	pass

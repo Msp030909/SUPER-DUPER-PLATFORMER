@@ -10,10 +10,7 @@ var alr_inv := false
 var health = 100
 
 func _physics_process(delta: float) -> void:
-	if velocity.x > 0:
-		$AttackComponent.scale.x = 1
-	elif velocity.x < 0:
-		$AttackComponent.scale.x = -1 
+	weapon_direction()
 	handle_movement(delta)
 	invulnerability(delta)
 	use_weapon()
@@ -50,6 +47,27 @@ func deal_damage(damage, knockback):
 
 		
 func use_weapon():
+	var angleFinder = $AngleFinder
 	if Input.is_action_just_pressed("action"):
-		$AttackComponent.attack(wepDamage, wepKnockback)
+		match angleFinder.dir:
+			"forwards":
+				$AttackComponent.scale.x = 1
+				$AttackComponent.attack(wepDamage, wepKnockback)
+			"backwards":
+				$AttackComponent.scale.x = -1
+				$AttackComponent.attack(wepDamage, wepKnockback)
+			"up":
+				$AttackComponent2.scale.y = 1
+				$AttackComponent2.attack(wepDamage,wepKnockback)
+			"down":
+				$AttackComponent2.scale.y = -1
+				$AttackComponent2.attack(wepDamage,wepKnockback)
+		#$AttackComponent.attack(wepDamage, wepKnockback)
 		#print("tryna attack")
+
+func weapon_direction():
+	
+	
+	
+	
+	pass
