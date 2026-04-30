@@ -92,3 +92,4 @@ MAX_INV = 1.0
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
 
 [node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("8_smehm")]
+trackPlayer = false

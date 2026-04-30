@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/hitbox_component.tscn" id="4_5lml2"]
 [ext_resource type="PackedScene" uid="uid://25y0qpocwua4" path="res://scenes/health_component.tscn" id="4_l0j8n"]
 [ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/attack_component.tscn" id="6_3hfl1"]
+[ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="7_6xltp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_an03s"]
 atlas = ExtResource("3_fgpj4")
@@ -172,6 +173,8 @@ MAX_CD = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerDamagerR" unique_id=1399206088]
 position = Vector2(13.25, 4.25)
 shape = SubResource("RectangleShape2D_6xltp")
+
+[node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("7_6xltp")]
 
 [connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
 [connection signal="body_entered" from="HitboxComponent" to="." method="_on_area_2d_body_entered"]

@@ -3,6 +3,7 @@ var ypos
 var xpos
 var dir
 enum angles { FORWARD, BACKWARD, UP, DOWN }
+@export var trackPlayer := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,8 +13,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var angle = global_rotation_degrees
-	
-	look_at(get_global_mouse_position())
+	if trackPlayer != true:
+		look_at(get_global_mouse_position())
+	else:
+		look_at($"../../Player".global_position)
 	#rotation = lerp_angle(rotation,angle, delta)
 	var rangle = round(angle)
 	print(rangle)
