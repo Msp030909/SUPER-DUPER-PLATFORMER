@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bi1674rygvvh7" path="res://scenes/goomba.tscn" id="6_o6xl0"]
 [ext_resource type="Script" uid="uid://cnist16jq11jg" path="res://scripts/hud.gd" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/pit_component.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://dgje2fkmblu3i" path="res://scenes/sword_enemy.tscn" id="9_85g3d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
 
@@ -138,3 +139,6 @@ position = Vector2(576, -16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitComponent" unique_id=754803181]
 position = Vector2(158, 466.5)
 shape = SubResource("RectangleShape2D_85g3d")
+
+[node name="SwordEnemy" parent="." unique_id=2137883664 instance=ExtResource("9_85g3d")]
+position = Vector2(-41, -11)

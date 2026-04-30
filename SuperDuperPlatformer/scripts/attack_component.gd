@@ -1,4 +1,5 @@
 extends Area2D
+class_name attackComponent
 @export var sprites: AnimatedSprite2D
 var atk_cooldown: float
 @export var MAX_CD: float
