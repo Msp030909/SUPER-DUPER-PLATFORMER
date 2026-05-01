@@ -141,4 +141,4 @@ position = Vector2(158, 466.5)
 shape = SubResource("RectangleShape2D_85g3d")
 
 [node name="SwordEnemy" parent="." unique_id=2137883664 instance=ExtResource("9_85g3d")]
-position = Vector2(-41, -11)
+position = Vector2(361, -11)

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dgje2fkmblu3i"]
 
+[ext_resource type="Script" uid="uid://bft6th5krkges" path="res://scenes/sword_enemy.gd" id="1_h2rq7"]
 [ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="1_ju7n2"]
 [ext_resource type="Script" uid="uid://cbmbrm8t7ry4f" path="res://scripts/attack_component.gd" id="2_60ntw"]
+[ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="3_qhwd4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_60ntw"]
 
@@ -17,6 +19,7 @@ size = Vector2(20, 27)
 size = Vector2(29, 11)
 
 [node name="SwordEnemy" type="CharacterBody2D" unique_id=2137883664]
+script = ExtResource("1_h2rq7")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=129871625]
 position = Vector2(0, -5.5000005)
@@ -51,3 +54,6 @@ metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent2" unique_id=584095782]
 position = Vector2(0, -23)
 shape = SubResource("RectangleShape2D_qhwd4")
+
+[node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("3_qhwd4")]
+position = Vector2(0, -5)
