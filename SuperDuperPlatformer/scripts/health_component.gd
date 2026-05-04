@@ -7,6 +7,7 @@ extends Node2D
 var invulnerable := false
 var inv_timer: float
 @export var MAX_INV: float
+@export var deathTime: int
 
 
 var deathcause
@@ -31,8 +32,10 @@ func _process(delta: float) -> void:
 		if "dying" in get_parent():
 			get_parent().dying = true
 			# print("dying is true now")
-		await get_tree().create_timer(5).timeout
-		get_parent().queue_free()
+			await get_tree().create_timer(deathTime).timeout
+			get_parent().queue_free()
+		else:
+			get_parent().queue_free()
 	pass
 
 func damage(attack,anim):

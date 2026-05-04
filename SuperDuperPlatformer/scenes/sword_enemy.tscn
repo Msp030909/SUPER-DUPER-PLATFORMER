@@ -70,6 +70,7 @@ mesh = SubResource("BoxMesh_ju7n2")
 [node name="HealthComponent" type="Node2D" parent="." unique_id=478840230 node_paths=PackedStringArray("animatedSprite2D")]
 script = ExtResource("1_ju7n2")
 animatedSprite2D = NodePath("../AnimatedSprite2D")
+deathTime = 2
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
 
 [node name="AttackComponent" type="Area2D" parent="." unique_id=1706094450]
