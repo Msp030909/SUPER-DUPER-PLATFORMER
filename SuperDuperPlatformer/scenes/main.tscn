@@ -97,8 +97,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_0xm2m")
 sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 sources/1 = SubResource("TileSetAtlasSource_tipki")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_85g3d"]
-size = Vector2(1278, 33)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_85g3d"]
 
 [node name="Main" type="Node2D" unique_id=1629234350]
 script = ExtResource("1_1bvp3")
@@ -137,8 +136,8 @@ position = Vector2(576, -16)
 [node name="PitComponent" parent="." unique_id=1124729358 instance=ExtResource("8_tipki")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitComponent" unique_id=754803181]
-position = Vector2(158, 466.5)
-shape = SubResource("RectangleShape2D_85g3d")
+position = Vector2(0, 200)
+shape = SubResource("WorldBoundaryShape2D_85g3d")
 
 [node name="SwordEnemy" parent="." unique_id=2137883664 instance=ExtResource("9_85g3d")]
 position = Vector2(933, -139)

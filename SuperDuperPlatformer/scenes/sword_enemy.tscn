@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="3_qhwd4"]
 [ext_resource type="Script" uid="uid://x07820mj0j5q" path="res://scripts/hitbox_component.gd" id="5_2frt8"]
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="6_7442g"]
+[ext_resource type="Script" uid="uid://16lto05d64am" path="res://scenes/move_component.gd" id="7_ey220"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_60ntw"]
 
@@ -97,6 +98,7 @@ collision_layer = 2
 script = ExtResource("5_2frt8")
 health_component = NodePath("../HealthComponent")
 damage_type = 1
+knockbackAffected = true
 metadata/_custom_type_script = "uid://x07820mj0j5q"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxComponent" unique_id=1613259486]
@@ -109,3 +111,6 @@ animation = &"idle"
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1448450667]
 position = Vector2(0, -6)
+
+[node name="MoveComponent" type="Node2D" parent="." unique_id=35476482]
+script = ExtResource("7_ey220")
