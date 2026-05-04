@@ -1,4 +1,6 @@
 extends Node2D
+class_name angleFinder
+
 var ypos
 var xpos
 var dir: String

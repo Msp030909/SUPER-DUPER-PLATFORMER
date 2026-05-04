@@ -112,5 +112,7 @@ animation = &"idle"
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1448450667]
 position = Vector2(0, -6)
 
-[node name="MoveComponent" type="Node2D" parent="." unique_id=35476482]
+[node name="MoveComponent" type="Node2D" parent="." unique_id=35476482 node_paths=PackedStringArray("angleFinder")]
 script = ExtResource("7_ey220")
+angleFinder = NodePath("../AngleFinder")
+velSpeed = 100
