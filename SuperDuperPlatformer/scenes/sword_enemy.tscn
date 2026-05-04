@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="1_ju7n2"]
 [ext_resource type="Script" uid="uid://cbmbrm8t7ry4f" path="res://scripts/attack_component.gd" id="2_60ntw"]
 [ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="3_qhwd4"]
+[ext_resource type="Script" uid="uid://x07820mj0j5q" path="res://scripts/hitbox_component.gd" id="5_2frt8"]
+[ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="6_7442g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_60ntw"]
 
@@ -17,6 +19,37 @@ size = Vector2(20, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhwd4"]
 size = Vector2(29, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2frt8"]
+size = Vector2(20, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an03s"]
+atlas = ExtResource("6_7442g")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2frt8"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_an03s")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_an03s")
+}],
+"loop": true,
+"name": &"stomped",
+"speed": 5.0
+}]
 
 [node name="SwordEnemy" type="CharacterBody2D" unique_id=2137883664]
 script = ExtResource("1_h2rq7")
@@ -33,8 +66,9 @@ shape = SubResource("RectangleShape2D_ouoap")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=812568805]
 mesh = SubResource("BoxMesh_ju7n2")
 
-[node name="HealthComponent" type="Node2D" parent="." unique_id=478840230]
+[node name="HealthComponent" type="Node2D" parent="." unique_id=478840230 node_paths=PackedStringArray("animatedSprite2D")]
 script = ExtResource("1_ju7n2")
+animatedSprite2D = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
 
 [node name="AttackComponent" type="Area2D" parent="." unique_id=1706094450]
@@ -57,3 +91,21 @@ shape = SubResource("RectangleShape2D_qhwd4")
 
 [node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("3_qhwd4")]
 position = Vector2(0, -5)
+
+[node name="hitboxComponent" type="Area2D" parent="." unique_id=399926668 node_paths=PackedStringArray("health_component")]
+collision_layer = 2
+script = ExtResource("5_2frt8")
+health_component = NodePath("../HealthComponent")
+damage_type = 1
+metadata/_custom_type_script = "uid://x07820mj0j5q"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxComponent" unique_id=1613259486]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_2frt8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1294253924]
+sprite_frames = SubResource("SpriteFrames_2frt8")
+animation = &"idle"
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1448450667]
+position = Vector2(0, -6)
