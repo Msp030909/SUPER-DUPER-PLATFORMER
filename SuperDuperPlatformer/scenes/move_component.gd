@@ -16,12 +16,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var maxTimer = 1
 	if timer >= maxTimer:
-		if angleFinder.dir == "forwards":
-			newVel = 1 * velSpeed
-		elif angleFinder.dir == "backwards":
-			newVel = -1 * velSpeed
-		else:
-			newVel = 0
+		match angleFinder.xdir:
+			"forwards":
+				newVel = 1 * velSpeed
+			"backwards":
+				newVel = -1 * velSpeed
+			_:
+				newVel = 0
 		timer = 0
 		print("updating pos")
 	timer += 1 * delta

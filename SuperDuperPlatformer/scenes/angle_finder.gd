@@ -4,6 +4,7 @@ class_name angleFinder
 var ypos
 var xpos
 var dir: String
+var xdir: String
 enum angles { FORWARD, BACKWARD, UP, DOWN }
 @export var trackPlayer := true
 
@@ -34,4 +35,11 @@ func _process(delta: float) -> void:
 	else:
 		dir = "down"
 		#print("down")
+	
+	if rangle >= -90 and rangle <= 90:
+		xdir = "forwards"
+		print("forwards")
+	else:
+		xdir = "backwards"
+		print("backwards")
 	pass
