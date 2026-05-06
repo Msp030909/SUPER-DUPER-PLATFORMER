@@ -27,19 +27,19 @@ func _process(delta: float) -> void:
 		dir = "forwards"
 		#print("forwards")
 	elif rangle <= -41 and rangle >= -133:
-		dir = "up"
+		dir = "upwards"
 		#print("up")
 	elif rangle <= 31 or rangle >= 120:
 		dir = "backwards"
 		#print("back")
 	else:
-		dir = "down"
+		dir = "downwards"
 		#print("down")
 	
 	if rangle >= -90 and rangle <= 90:
 		xdir = "forwards"
-		print("forwards")
+		#print("forwards")
 	else:
 		xdir = "backwards"
-		print("backwards")
+		#print("backwards")
 	pass

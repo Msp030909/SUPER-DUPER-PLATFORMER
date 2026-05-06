@@ -56,10 +56,10 @@ func use_weapon():
 			"backwards":
 				$AttackComponent.scale.x = -1
 				$AttackComponent.attack(wepDamage, wepKnockback)
-			"up":
+			"upwards":
 				$AttackComponent2.scale.y = 1
 				$AttackComponent2.attack(wepDamage,wepKnockback)
-			"down":
+			"downwards":
 				$AttackComponent2.scale.y = -1
 				$AttackComponent2.attack(wepDamage,wepKnockback)
 		#$AttackComponent.attack(wepDamage, wepKnockback)

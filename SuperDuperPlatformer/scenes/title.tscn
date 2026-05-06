@@ -48,4 +48,5 @@ text = "Quit"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=830339994]
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_quit_pressed"]

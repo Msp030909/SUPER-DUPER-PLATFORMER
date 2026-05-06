@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dgje2fkmblu3i"]
 
-[ext_resource type="Script" uid="uid://bft6th5krkges" path="res://scenes/sword_enemy.gd" id="1_h2rq7"]
+[ext_resource type="Script" uid="uid://bft6th5krkges" path="res://scripts/sword_enemy.gd" id="1_h2rq7"]
 [ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="1_ju7n2"]
 [ext_resource type="Script" uid="uid://cbmbrm8t7ry4f" path="res://scripts/attack_component.gd" id="2_60ntw"]
 [ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="3_qhwd4"]
 [ext_resource type="Script" uid="uid://x07820mj0j5q" path="res://scripts/hitbox_component.gd" id="5_2frt8"]
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="6_7442g"]
-[ext_resource type="Script" uid="uid://16lto05d64am" path="res://scenes/move_component.gd" id="7_ey220"]
+[ext_resource type="Script" uid="uid://16lto05d64am" path="res://scripts/move_component.gd" id="7_ey220"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_60ntw"]
 
@@ -117,3 +117,14 @@ position = Vector2(0, -6)
 script = ExtResource("7_ey220")
 angleFinder = NodePath("../AngleFinder")
 velSpeed = 100
+JUMPVEL = 300
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1292240980]
+position = Vector2(0, 6)
+target_position = Vector2(17, 0)
+hit_from_inside = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=306494133]
+position = Vector2(0, 6)
+target_position = Vector2(-17, 0)
+hit_from_inside = true
