@@ -27,5 +27,25 @@ func _physics_process(delta: float) -> void:
 			"downwards":
 				$AttackComponent2.scale.y = -1
 				$AttackComponent2.attack(damage,knockback)
+	if $RayCast2D.is_colliding() == true :
+		if $RayCast2D.get_collider() is not CharacterBody2D:
+			$MoveComponent.jump()
+			print("jumping")
+	elif $RayCast2D2.is_colliding() == true:
+		if $RayCast2D2.get_collider() is not CharacterBody2D:
+			$MoveComponent.jump()
+			print("jumping")
 	move_and_slide()
 	
+
+
+func _on_attack_component_area_entered(area: hitboxComponent) -> void:
+	$AttackComponent.attack(damage, knockback)
+	print("I SHOULD BE ATTACKING BUT I'M NOT (LEFT)")
+	pass # Replace with function body.
+
+
+func _on_attack_component_2_area_entered(area: Area2D) -> void:
+	$AttackComponent2.attack(damage, knockback)
+	print("I should be attacking but I'm too chill")
+	pass # Replace with function body.

@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 			print("jumping")
 		timer = 0
 		print("updating pos")
+		
 	timer += 1 * delta
 	pass
 	

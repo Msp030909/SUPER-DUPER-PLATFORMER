@@ -54,6 +54,8 @@ animations = [{
 
 [node name="SwordEnemy" type="CharacterBody2D" unique_id=2137883664]
 script = ExtResource("1_h2rq7")
+damage = 9999999999
+knockback = 30
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=129871625]
 position = Vector2(0, -5.5000005)
@@ -76,6 +78,7 @@ metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
 [node name="AttackComponent" type="Area2D" parent="." unique_id=1706094450]
 position = Vector2(0, -5)
 script = ExtResource("2_60ntw")
+MAX_CD = 0.5
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1244546258]
@@ -85,6 +88,7 @@ shape = SubResource("RectangleShape2D_60ntw")
 [node name="AttackComponent2" type="Area2D" parent="." unique_id=440793037]
 position = Vector2(0, -5)
 script = ExtResource("2_60ntw")
+MAX_CD = 0.5
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent2" unique_id=584095782]
@@ -128,3 +132,6 @@ hit_from_inside = true
 position = Vector2(0, 6)
 target_position = Vector2(-17, 0)
 hit_from_inside = true
+
+[connection signal="area_entered" from="AttackComponent" to="." method="_on_attack_component_area_entered"]
+[connection signal="area_entered" from="AttackComponent2" to="." method="_on_attack_component_2_area_entered"]

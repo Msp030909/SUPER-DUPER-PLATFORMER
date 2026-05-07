@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Player
+
 @export var wepDamage: float
 @export var wepKnockback: float
 const SPEED = 200.0
