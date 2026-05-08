@@ -13,8 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: hitboxComponent) -> void:
 	if area.get_parent() is Player:
-		print($"/root/Global".checkpoint)
-		area.get_parent().position = Vector2(0,0)
+		area.get_parent().position = Global.checkpoint
 	else:
-		area.queue_free()
+		area.get_parent().queue_free()
 	pass # Replace with function body.

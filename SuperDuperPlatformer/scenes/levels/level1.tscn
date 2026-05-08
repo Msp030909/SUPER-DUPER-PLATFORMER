@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chkp5ue4ixxeu" path="res://scripts/main.gd" id="1_conm7"]
 [ext_resource type="Script" uid="uid://cnist16jq11jg" path="res://scripts/hud.gd" id="2_d3jkd"]
+[ext_resource type="PackedScene" uid="uid://cohvfhaa6djcn" path="res://scenes/healthbar.tscn" id="3_5ntmo"]
 [ext_resource type="PackedScene" uid="uid://bi1674rygvvh7" path="res://scenes/goomba.tscn" id="3_u3awl"]
 [ext_resource type="Texture2D" uid="uid://fryhmdqs8350" path="res://assets/sprites/New Piskel-1.png.png" id="4_2ku1j"]
 [ext_resource type="Texture2D" uid="uid://by0i88d7y6ddk" path="res://assets/sprites/Tileset.png" id="5_f31uk"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ba38a4mu0pdav" path="res://scenes/npc.tscn" id="7_i8kv5"]
 [ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/pit_component.tscn" id="8_dxn3v"]
 [ext_resource type="PackedScene" uid="uid://dgje2fkmblu3i" path="res://scenes/sword_enemy.tscn" id="9_14jow"]
+[ext_resource type="PackedScene" uid="uid://c037jt6gf6bdm" path="res://scenes/checkpoint.tscn" id="11_nkeig"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
 
@@ -105,11 +107,7 @@ script = ExtResource("1_conm7")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1085672464]
 script = ExtResource("2_d3jkd")
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=112996388]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "THE UI IS WORKING"
-metadata/_edit_use_anchors_ = true
+[node name="Control" parent="CanvasLayer" unique_id=107195953 instance=ExtResource("3_5ntmo")]
 
 [node name="Goomba2" parent="." unique_id=1725147179 instance=ExtResource("3_u3awl")]
 position = Vector2(500, -32)
@@ -141,3 +139,6 @@ shape = SubResource("WorldBoundaryShape2D_85g3d")
 
 [node name="SwordEnemy" parent="." unique_id=2137883664 instance=ExtResource("9_14jow")]
 position = Vector2(1005, -98)
+
+[node name="Checkpoint" parent="." unique_id=777820841 instance=ExtResource("11_nkeig")]
+position = Vector2(712, -28)

@@ -12,6 +12,7 @@ var alr_inv := false
 var health = 100
 
 func _physics_process(delta: float) -> void:
+	Global.pHealth = $HealthComponent.health
 	weapon_direction()
 	handle_movement(delta)
 	invulnerability(delta)

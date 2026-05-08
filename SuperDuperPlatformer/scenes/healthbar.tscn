@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cohvfhaa6djcn"]
+
+[ext_resource type="Script" uid="uid://dosrw5j7qjyn8" path="res://scenes/healthbar.gd" id="1_8wl12"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qc6vu"]
+
+[node name="Control" type="Control" unique_id=107195953]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8wl12")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="MeshInstance2D" parent="." unique_id=1291271754]
+modulate = Color(0.70796657, 0.7079665, 0.7079665, 1)
+position = Vector2(112, 16)
+scale = Vector2(208, 24)
+mesh = SubResource("BoxMesh_qc6vu")
+
+[node name="HealthBar" type="MeshInstance2D" parent="." unique_id=340114114]
+modulate = Color(0, 0.8536741, 0.31864673, 1)
+position = Vector2(112, 16)
+scale = Vector2(200, 21.74)
+mesh = SubResource("BoxMesh_qc6vu")

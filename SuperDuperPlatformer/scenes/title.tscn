@@ -6,10 +6,10 @@
 [node name="Node2D" type="Node2D" unique_id=59304458]
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=604805059]
-offset_left = -584.0
-offset_top = -316.0
-offset_right = 571.0
-offset_bottom = 327.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 16
@@ -29,6 +29,7 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=419556960]
 layout_mode = 2
+alignment = 1
 script = ExtResource("2_wosw1")
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1533068447]

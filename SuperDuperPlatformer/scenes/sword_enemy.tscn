@@ -16,7 +16,7 @@ size = Vector2(20, 31)
 [sub_resource type="BoxMesh" id="BoxMesh_ju7n2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60ntw"]
-size = Vector2(20, 27)
+size = Vector2(13, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhwd4"]
 size = Vector2(29, 11)
@@ -83,7 +83,7 @@ MAX_CD = 0.5
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1244546258]
-position = Vector2(20, -0.5)
+position = Vector2(16.5, -0.5)
 shape = SubResource("RectangleShape2D_60ntw")
 
 [node name="AttackComponent2" type="Area2D" parent="." unique_id=440793037]
@@ -103,6 +103,7 @@ position = Vector2(0, -5)
 [node name="hitboxComponent" type="Area2D" parent="." unique_id=399926668 node_paths=PackedStringArray("health_component")]
 collision_layer = 2
 script = ExtResource("5_2frt8")
+stompDamage = null
 health_component = NodePath("../HealthComponent")
 damage_type = 1
 knockbackAffected = true
