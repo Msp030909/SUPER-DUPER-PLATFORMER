@@ -40,16 +40,16 @@ func weapon_aimer():
 	match angleFinder.dir:
 			"forwards":
 				$AttackComponent.scale.x = 1
-				#$AttackComponent.attack(damage, knockback)
+				$AttackComponent.attack(damage, knockback)
 			"backwards":
 				$AttackComponent.scale.x = -1
-				#$AttackComponent.attack(damage, knockback)
+				$AttackComponent.attack(damage, knockback)
 			"upwards":
 				$AttackComponent2.scale.y = 1
-				#$AttackComponent2.attack(damage,knockback)
+				$AttackComponent2.attack(damage,knockback)
 			"downwards":
 				$AttackComponent2.scale.y = -1
-				#$AttackComponent2.attack(damage,knockback)
+				$AttackComponent2.attack(damage,knockback)
 	pass
 
 func _on_attack_component_area_entered(area: hitboxComponent) -> void:

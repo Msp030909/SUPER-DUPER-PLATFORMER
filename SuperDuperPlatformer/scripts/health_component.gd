@@ -8,7 +8,7 @@ var invulnerable := false
 var inv_timer: float
 @export var MAX_INV: float
 @export var deathTime: int
-
+var postDmgTimer: float
 
 var deathcause
 
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	
 	if HAS_INV: 
 		invulnerability(delta)
-	
+	postDmgTimer += 1 * delta
 	if health <= 0:
 		if animatedSprite2D:
 			animatedSprite2D.animation = str(deathcause)
