@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cohvfhaa6djcn"]
 
-[ext_resource type="Script" uid="uid://dosrw5j7qjyn8" path="res://scenes/healthbar.gd" id="1_8wl12"]
+[ext_resource type="Script" uid="uid://dosrw5j7qjyn8" path="res://scripts/healthbar.gd" id="1_8wl12"]
 [ext_resource type="FontFile" uid="uid://dfv0lsvfvddiv" path="res://assets/fonts/Jersey_10/Jersey10-Regular.ttf" id="2_vjxg4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulkio"]

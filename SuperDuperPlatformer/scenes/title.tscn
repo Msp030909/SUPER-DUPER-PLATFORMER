@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mcsjn7112ss"]
 
 [ext_resource type="Theme" uid="uid://wbrk22i2h7by" path="res://assets/fonts/labeltheme.tres" id="1_4ignj"]
-[ext_resource type="Script" uid="uid://buvrmxroq6kn1" path="res://scenes/Title.gd" id="2_wosw1"]
+[ext_resource type="Script" uid="uid://buvrmxroq6kn1" path="res://scripts/Title.gd" id="2_wosw1"]
 
 [node name="Node2D" type="Node2D" unique_id=59304458]
 

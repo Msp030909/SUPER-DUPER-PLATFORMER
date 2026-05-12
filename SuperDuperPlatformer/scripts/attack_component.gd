@@ -5,6 +5,7 @@ var atk_cooldown: float
 @export var MAX_CD: float
 signal attack_node
 var recipient
+var is_attacking: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +23,7 @@ func _process(delta: float) -> void:
 func attack(damage, knockback):
 	#print("attack registered but no recipient")
 	if atk_cooldown <= 0:
+		is_attacking = true
 		if sprites:
 				sprites.play("attack")
 		if recipient:
@@ -31,6 +33,7 @@ func attack(damage, knockback):
 			attack_node.disconnect(recipient.on_attack)
 			#print("attacking")
 		atk_cooldown = MAX_CD
+		is_attacking = false
 		pass
 
 

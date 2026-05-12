@@ -140,6 +140,7 @@ animations = [{
 }]
 
 [node name="SwordEnemy" type="CharacterBody2D" unique_id=2137883664]
+collision_layer = 2
 script = ExtResource("1_h2rq7")
 damage = 40
 knockback = 30
@@ -203,7 +204,7 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_2frt8")
 animation = &"walk_simple"
 autoplay = "walk_simple"
-frame_progress = 0.023602195
+frame_progress = 0.8350368
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1448450667]
 position = Vector2(0, -6)

@@ -12,21 +12,10 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
 	velocity.x = $MoveComponent.newVel
-	match angleFinder.dir:
-			"forwards":
-				$AttackComponent.scale.x = 1
-				$AttackComponent.attack(damage, knockback)
-			"backwards":
-				$AttackComponent.scale.x = -1
-				$AttackComponent.attack(damage, knockback)
-			"upwards":
-				$AttackComponent2.scale.y = 1
-				$AttackComponent2.attack(damage,knockback)
-			"downwards":
-				$AttackComponent2.scale.y = -1
-				$AttackComponent2.attack(damage,knockback)
+	
+	weapon_aimer()
+	
 	if $RayCast2D.is_colliding() == true :
 		if $RayCast2D.get_collider() is not CharacterBody2D:
 			$MoveComponent.jump()
@@ -38,16 +27,38 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
+func anim_manager():
+	var initAnim
+	if velocity.x != 0:
+		initAnim = "walk"
+	else:
+		initAnim = "idle"
+
+	pass
+
+func weapon_aimer():
+	match angleFinder.dir:
+			"forwards":
+				$AttackComponent.scale.x = 1
+				#$AttackComponent.attack(damage, knockback)
+			"backwards":
+				$AttackComponent.scale.x = -1
+				#$AttackComponent.attack(damage, knockback)
+			"upwards":
+				$AttackComponent2.scale.y = 1
+				#$AttackComponent2.attack(damage,knockback)
+			"downwards":
+				$AttackComponent2.scale.y = -1
+				#$AttackComponent2.attack(damage,knockback)
+	pass
 
 func _on_attack_component_area_entered(area: hitboxComponent) -> void:
 	$AttackComponent.attack(damage, knockback)
-	print("I SHOULD BE ATTACKING BUT I'M NOT (LEFT)")
 	pass # Replace with function body.
 
 
 func _on_attack_component_2_area_entered(area: Area2D) -> void:
 	$AttackComponent2.attack(damage, knockback)
-	print("I should be attacking but I'm too chill")
 	pass # Replace with function body.
 
 
