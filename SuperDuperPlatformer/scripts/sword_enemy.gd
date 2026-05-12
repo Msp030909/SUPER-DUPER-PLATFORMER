@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -400.0
 @onready var angleFinder: angleFinder = $AngleFinder
 @export var damage: int
 @export var knockback: int
-
+var ogPos: Vector2
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -48,4 +48,14 @@ func _on_attack_component_area_entered(area: hitboxComponent) -> void:
 func _on_attack_component_2_area_entered(area: Area2D) -> void:
 	$AttackComponent2.attack(damage, knockback)
 	print("I should be attacking but I'm too chill")
+	pass # Replace with function body.
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	position = ogPos
+	pass # Replace with function body.
+
+
+func _on_ready() -> void:
+	ogPos = position
 	pass # Replace with function body.

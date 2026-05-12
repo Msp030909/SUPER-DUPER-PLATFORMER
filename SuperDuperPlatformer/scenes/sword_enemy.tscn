@@ -7,16 +7,16 @@
 [ext_resource type="Script" uid="uid://x07820mj0j5q" path="res://scripts/hitbox_component.gd" id="5_2frt8"]
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="6_7442g"]
 [ext_resource type="Script" uid="uid://16lto05d64am" path="res://scripts/move_component.gd" id="7_ey220"]
+[ext_resource type="Texture2D" uid="uid://4msrnex6eisf" path="res://assets/sprites/Swordsman (1).png" id="7_sffsw"]
+[ext_resource type="Texture2D" uid="uid://3cae0sv4thf4" path="res://assets/sprites/Swordsman Simple.png" id="8_tpjj1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_60ntw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouoap"]
 size = Vector2(20, 31)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ju7n2"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60ntw"]
-size = Vector2(13, 27)
+size = Vector2(10, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhwd4"]
 size = Vector2(29, 11)
@@ -27,6 +27,50 @@ size = Vector2(20, 31)
 [sub_resource type="AtlasTexture" id="AtlasTexture_an03s"]
 atlas = ExtResource("6_7442g")
 region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpjj1"]
+atlas = ExtResource("7_sffsw")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyir5"]
+atlas = ExtResource("7_sffsw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ej0a"]
+atlas = ExtResource("7_sffsw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uflee"]
+atlas = ExtResource("7_sffsw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uylah"]
+atlas = ExtResource("7_sffsw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdbxs"]
+atlas = ExtResource("7_sffsw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5pqd"]
+atlas = ExtResource("7_sffsw")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tanjt"]
+atlas = ExtResource("8_tpjj1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syykq"]
+atlas = ExtResource("8_tpjj1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uls60"]
+atlas = ExtResource("8_tpjj1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xask1"]
+atlas = ExtResource("8_tpjj1")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2frt8"]
 animations = [{
@@ -50,11 +94,54 @@ animations = [{
 "loop": true,
 "name": &"stomped",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpjj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyir5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ej0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uflee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uylah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdbxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5pqd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tanjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syykq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uls60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xask1")
+}],
+"loop": true,
+"name": &"walk_simple",
+"speed": 6.0
 }]
 
 [node name="SwordEnemy" type="CharacterBody2D" unique_id=2137883664]
 script = ExtResource("1_h2rq7")
-damage = 10
+damage = 40
 knockback = 30
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=129871625]
@@ -65,9 +152,6 @@ mesh = SubResource("BoxMesh_60ntw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1388947992]
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_ouoap")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=812568805]
-mesh = SubResource("BoxMesh_ju7n2")
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=478840230 node_paths=PackedStringArray("animatedSprite2D")]
 script = ExtResource("1_ju7n2")
@@ -83,7 +167,7 @@ MAX_CD = 0.5
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1244546258]
-position = Vector2(16.5, -0.5)
+position = Vector2(15, -0.5)
 shape = SubResource("RectangleShape2D_60ntw")
 
 [node name="AttackComponent2" type="Area2D" parent="." unique_id=440793037]
@@ -114,8 +198,12 @@ position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_2frt8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1294253924]
+position = Vector2(1.0000019, -11)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_2frt8")
-animation = &"idle"
+animation = &"walk_simple"
+autoplay = "walk_simple"
+frame_progress = 0.023602195
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1448450667]
 position = Vector2(0, -6)
@@ -136,9 +224,11 @@ position = Vector2(0, 6)
 target_position = Vector2(-17, 0)
 hit_from_inside = true
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="area_entered" from="AttackComponent" to="." method="_on_attack_component_area_entered"]
 [connection signal="area_entered" from="AttackComponent" to="AttackComponent" method="_on_area_entered"]
 [connection signal="area_exited" from="AttackComponent" to="AttackComponent" method="_on_area_exited"]
 [connection signal="area_entered" from="AttackComponent2" to="." method="_on_attack_component_2_area_entered"]
 [connection signal="area_entered" from="AttackComponent2" to="AttackComponent2" method="_on_area_entered"]
 [connection signal="area_exited" from="AttackComponent2" to="AttackComponent2" method="_on_area_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
