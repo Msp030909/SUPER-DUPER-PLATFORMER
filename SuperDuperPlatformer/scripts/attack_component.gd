@@ -6,6 +6,7 @@ var atk_cooldown: float
 signal attack_node
 var recipient
 var is_attacking: bool
+@export var animManager: AnimationManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,8 @@ func attack(damage, knockback):
 		is_attacking = true
 		if sprites:
 				sprites.play("attack")
+		if animManager:
+				animManager.attacking = true
 		if recipient:
 			#print("attacking, there is a recipient")
 			attack_node.connect(recipient.on_attack)
