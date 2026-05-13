@@ -25,16 +25,6 @@ func _physics_process(delta: float) -> void:
 			$MoveComponent.jump()
 			print("jumping")
 	move_and_slide()
-	
-
-func anim_manager():
-	var initAnim
-	if velocity.x != 0:
-		initAnim = "walk"
-	else:
-		initAnim = "idle"
-
-	pass
 
 func weapon_aimer():
 	match angleFinder.dir:

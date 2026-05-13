@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://16lto05d64am" path="res://scripts/move_component.gd" id="7_ey220"]
 [ext_resource type="Texture2D" uid="uid://4msrnex6eisf" path="res://assets/sprites/Swordsman (1).png" id="7_sffsw"]
 [ext_resource type="Texture2D" uid="uid://3cae0sv4thf4" path="res://assets/sprites/Swordsman Simple.png" id="8_tpjj1"]
+[ext_resource type="Texture2D" uid="uid://ben3jdwl7glef" path="res://assets/sprites/Swordsman Attacking.png" id="9_6ej0a"]
+[ext_resource type="PackedScene" uid="uid://bcrcv7334imjk" path="res://scenes/animation_manager.tscn" id="10_qyir5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_60ntw"]
 
@@ -27,6 +29,22 @@ size = Vector2(20, 31)
 [sub_resource type="AtlasTexture" id="AtlasTexture_an03s"]
 atlas = ExtResource("6_7442g")
 region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tanjt"]
+atlas = ExtResource("8_tpjj1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syykq"]
+atlas = ExtResource("8_tpjj1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uls60"]
+atlas = ExtResource("8_tpjj1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xask1"]
+atlas = ExtResource("8_tpjj1")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpjj1"]
 atlas = ExtResource("7_sffsw")
@@ -56,20 +74,20 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("7_sffsw")
 region = Rect2(64, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tanjt"]
-atlas = ExtResource("8_tpjj1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l72n8"]
+atlas = ExtResource("9_6ej0a")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_syykq"]
-atlas = ExtResource("8_tpjj1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxlev"]
+atlas = ExtResource("9_6ej0a")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uls60"]
-atlas = ExtResource("8_tpjj1")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u7vw"]
+atlas = ExtResource("9_6ej0a")
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xask1"]
-atlas = ExtResource("8_tpjj1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs66u"]
+atlas = ExtResource("9_6ej0a")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2frt8"]
@@ -97,6 +115,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tanjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syykq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uls60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xask1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tpjj1")
 }, {
 "duration": 1.0,
@@ -118,24 +153,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_n5pqd")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"walk_complex",
 "speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tanjt")
+"texture": SubResource("AtlasTexture_l72n8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_syykq")
+"texture": SubResource("AtlasTexture_qxlev")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uls60")
+"texture": SubResource("AtlasTexture_6u7vw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xask1")
+"texture": SubResource("AtlasTexture_rs66u")
 }],
 "loop": true,
-"name": &"walk_simple",
+"name": &"walk_slash",
 "speed": 6.0
 }]
 
@@ -160,11 +195,12 @@ animatedSprite2D = NodePath("../AnimatedSprite2D")
 deathTime = 2
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
 
-[node name="AttackComponent" type="Area2D" parent="." unique_id=1706094450]
+[node name="AttackComponent" type="Area2D" parent="." unique_id=1706094450 node_paths=PackedStringArray("animManager")]
 position = Vector2(0, -5)
 collision_layer = 5
 script = ExtResource("2_60ntw")
 MAX_CD = 0.5
+animManager = NodePath("../AnimationManager")
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1244546258]
@@ -202,9 +238,9 @@ shape = SubResource("RectangleShape2D_2frt8")
 position = Vector2(1.0000019, -11)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_2frt8")
-animation = &"walk_simple"
-autoplay = "walk_simple"
-frame_progress = 0.8350368
+animation = &"walk_slash"
+autoplay = "walk"
+frame_progress = 0.8807942
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1448450667]
 position = Vector2(0, -6)
@@ -224,6 +260,10 @@ hit_from_inside = true
 position = Vector2(0, 6)
 target_position = Vector2(-17, 0)
 hit_from_inside = true
+
+[node name="AnimationManager" parent="." unique_id=1604929396 node_paths=PackedStringArray("animSprite", "atkComponent") instance=ExtResource("10_qyir5")]
+animSprite = NodePath("../AnimatedSprite2D")
+atkComponent = NodePath("../AttackComponent")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="area_entered" from="AttackComponent" to="." method="_on_attack_component_area_entered"]

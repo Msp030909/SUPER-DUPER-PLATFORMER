@@ -2,7 +2,7 @@ class_name HealthComponent
 
 extends Node2D
 @export var MAX_HEALTH := 10.0
-@export var animatedSprite2D := AnimatedSprite2D
+@export var animatedSprite2D: AnimatedSprite2D
 @export var HAS_INV: bool
 var invulnerable := false
 var inv_timer: float

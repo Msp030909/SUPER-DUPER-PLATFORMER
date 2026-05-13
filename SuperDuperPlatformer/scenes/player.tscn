@@ -107,6 +107,7 @@ script = ExtResource("7_fjrip")
 MAX_HEALTH = 100.0
 HAS_INV = true
 MAX_INV = 1.0
+deathTime = 10
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
 
 [node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("8_smehm")]
