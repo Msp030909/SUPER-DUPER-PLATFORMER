@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://2t7quh5uq448" path="res://scripts/goomba.gd" id="1_jke6y"]
 [ext_resource type="Texture2D" uid="uid://bu0xnvs4hvqsq" path="res://assets/sprites/Goomba Enemy.png" id="2_lwfim"]
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="3_fgpj4"]
-[ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/hitbox_component.tscn" id="4_5lml2"]
-[ext_resource type="PackedScene" uid="uid://25y0qpocwua4" path="res://scenes/health_component.tscn" id="4_l0j8n"]
-[ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/attack_component.tscn" id="6_3hfl1"]
+[ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/components/hitbox_component.tscn" id="4_5lml2"]
+[ext_resource type="PackedScene" uid="uid://25y0qpocwua4" path="res://scenes/components/health_component.tscn" id="4_l0j8n"]
+[ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/components/attack_component.tscn" id="6_3hfl1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_an03s"]
 atlas = ExtResource("3_fgpj4")

@@ -10,6 +10,9 @@ var inv_timer: float= 1
 var invulnerable := false
 var alr_inv := false
 @onready var health = $HealthComponent.health
+@export var MAX_HEALTH_TIME := 10
+var healthTimer = MAX_HEALTH_TIME
+
 
 func _physics_process(delta: float) -> void:
 	Global.pHealth = $HealthComponent.health

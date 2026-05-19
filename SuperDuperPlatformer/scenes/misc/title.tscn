@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mcsjn7112ss"]
 
-[ext_resource type="Theme" uid="uid://wbrk22i2h7by" path="res://assets/fonts/labeltheme.tres" id="1_4ignj"]
-[ext_resource type="Script" uid="uid://buvrmxroq6kn1" path="res://scripts/Title.gd" id="2_wosw1"]
+[ext_resource type="Theme" uid="uid://wbrk22i2h7by" path="res://assets/fonts/labeltheme.tres" id="1_h05d6"]
+[ext_resource type="Script" uid="uid://buvrmxroq6kn1" path="res://scripts/Title.gd" id="2_r6u3p"]
 
 [node name="Node2D" type="Node2D" unique_id=59304458]
 
@@ -21,7 +21,7 @@ layout_mode = 2
 [node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1553203120]
 layout_mode = 2
 size_flags_vertical = 6
-theme = ExtResource("1_4ignj")
+theme = ExtResource("1_h05d6")
 bbcode_enabled = true
 text = "[b]SUPER DUPER PLATFORMER[/b]"
 fit_content = true
@@ -30,21 +30,21 @@ horizontal_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=419556960]
 layout_mode = 2
 alignment = 1
-script = ExtResource("2_wosw1")
+script = ExtResource("2_r6u3p")
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1533068447]
 layout_mode = 2
-theme = ExtResource("1_4ignj")
+theme = ExtResource("1_h05d6")
 text = "Play"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1804470681]
 layout_mode = 2
-theme = ExtResource("1_4ignj")
+theme = ExtResource("1_h05d6")
 text = "Settings"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1163934538]
 layout_mode = 2
-theme = ExtResource("1_4ignj")
+theme = ExtResource("1_h05d6")
 text = "Quit"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=830339994]

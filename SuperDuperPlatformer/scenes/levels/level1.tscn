@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://chkp5ue4ixxeu" path="res://scripts/main.gd" id="1_conm7"]
 [ext_resource type="Script" uid="uid://cnist16jq11jg" path="res://scripts/hud.gd" id="2_d3jkd"]
-[ext_resource type="PackedScene" uid="uid://cohvfhaa6djcn" path="res://scenes/healthbar.tscn" id="3_5ntmo"]
-[ext_resource type="PackedScene" uid="uid://bi1674rygvvh7" path="res://scenes/goomba.tscn" id="3_u3awl"]
+[ext_resource type="PackedScene" uid="uid://cohvfhaa6djcn" path="res://scenes/ui/healthbar.tscn" id="3_5ntmo"]
+[ext_resource type="PackedScene" uid="uid://bi1674rygvvh7" path="res://scenes/enemies/goomba.tscn" id="3_u3awl"]
 [ext_resource type="Texture2D" uid="uid://fryhmdqs8350" path="res://assets/sprites/New Piskel-1.png.png" id="4_2ku1j"]
 [ext_resource type="Texture2D" uid="uid://by0i88d7y6ddk" path="res://assets/sprites/Tileset.png" id="5_f31uk"]
-[ext_resource type="PackedScene" uid="uid://b0jt8we7485tv" path="res://scenes/player.tscn" id="6_gnai3"]
-[ext_resource type="PackedScene" uid="uid://ba38a4mu0pdav" path="res://scenes/npc.tscn" id="7_i8kv5"]
-[ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/pit_component.tscn" id="8_dxn3v"]
-[ext_resource type="PackedScene" uid="uid://dgje2fkmblu3i" path="res://scenes/sword_enemy.tscn" id="9_14jow"]
-[ext_resource type="PackedScene" uid="uid://c037jt6gf6bdm" path="res://scenes/checkpoint.tscn" id="11_nkeig"]
+[ext_resource type="PackedScene" uid="uid://b0jt8we7485tv" path="res://scenes/player/player.tscn" id="6_gnai3"]
+[ext_resource type="PackedScene" uid="uid://ba38a4mu0pdav" path="res://scenes/misc/npc.tscn" id="7_i8kv5"]
+[ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/components/pit_component.tscn" id="8_dxn3v"]
+[ext_resource type="PackedScene" uid="uid://dgje2fkmblu3i" path="res://scenes/enemies/sword_enemy.tscn" id="9_14jow"]
+[ext_resource type="PackedScene" uid="uid://c037jt6gf6bdm" path="res://scenes/components/checkpoint.tscn" id="11_nkeig"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
 

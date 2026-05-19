@@ -22,7 +22,7 @@ func on_player_npc_prox(dialog):
 	#print(dialog, " this is the dialogue btw")
 
 func start_dialog():
-	var hud = preload("res://scenes/hud.tscn")
+	var hud = preload("res://scenes/ui/hud.tscn")
 	var child_hud = hud.instantiate()
 	child_hud.dialog = storedDialog
 	add_child(child_hud)

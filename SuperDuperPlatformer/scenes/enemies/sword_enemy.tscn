@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bft6th5krkges" path="res://scripts/sword_enemy.gd" id="1_h2rq7"]
 [ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="1_ju7n2"]
 [ext_resource type="Script" uid="uid://cbmbrm8t7ry4f" path="res://scripts/attack_component.gd" id="2_60ntw"]
-[ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="3_qhwd4"]
+[ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/components/angle_finder.tscn" id="3_qhwd4"]
 [ext_resource type="Texture2D" uid="uid://c4t14jv531llf" path="res://assets/sprites/Slasholder.png" id="4_uflee"]
 [ext_resource type="Script" uid="uid://x07820mj0j5q" path="res://scripts/hitbox_component.gd" id="5_2frt8"]
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="6_7442g"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://4msrnex6eisf" path="res://assets/sprites/Swordsman (1).png" id="7_sffsw"]
 [ext_resource type="Texture2D" uid="uid://3cae0sv4thf4" path="res://assets/sprites/Swordsman Simple.png" id="8_tpjj1"]
 [ext_resource type="Texture2D" uid="uid://ben3jdwl7glef" path="res://assets/sprites/Swordsman Attacking.png" id="9_6ej0a"]
-[ext_resource type="PackedScene" uid="uid://bcrcv7334imjk" path="res://scenes/animation_manager.tscn" id="10_qyir5"]
+[ext_resource type="PackedScene" uid="uid://bcrcv7334imjk" path="res://scenes/components/animation_manager.tscn" id="10_qyir5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouoap"]
 size = Vector2(20, 31)
@@ -245,8 +245,8 @@ position = Vector2(0, -23)
 shape = SubResource("RectangleShape2D_qhwd4")
 
 [node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent2" unique_id=1485112979]
-position = Vector2(0, -21)
-rotation = -1.5707964
+position = Vector2(13, -1)
+scale = Vector2(0.5625, 1)
 sprite_frames = SubResource("SpriteFrames_uylah")
 animation = &"aidle"
 autoplay = "aidle"
