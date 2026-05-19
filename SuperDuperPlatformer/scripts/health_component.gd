@@ -9,6 +9,10 @@ var inv_timer: float
 @export var MAX_INV: float
 @export var deathTime: int
 var postDmgTimer: float
+@export var MAX_HURT := 0.1
+var hurtTimer = MAX_HURT
+var indicateHurt = false
+
 
 var deathcause
 
@@ -36,6 +40,7 @@ func _process(delta: float) -> void:
 			get_parent().queue_free()
 		else:
 			get_parent().queue_free()
+	hurt_time(delta)
 	pass
 
 func damage(attack,anim):
@@ -43,6 +48,7 @@ func damage(attack,anim):
 		health -= attack
 		deathcause = anim
 		print("this is the health now: ", health)
+		indicateHurt = true
 		if HAS_INV:
 			invulnerable = true
 	pass
@@ -58,4 +64,15 @@ func invulnerability(delta):
 		#print("time up")
 		get_parent().modulate = Color.WHITE
 	pass
-	
+
+func hurt_time(delta):
+	if indicateHurt == true:
+		get_parent().modulate = Color.BLUE
+		#print("I'M DOING STUFF")
+		hurtTimer -= 1 * delta
+		if hurtTimer <= 0:
+			get_parent().modulate = Color.WHITE
+			print("time up")
+			hurtTimer = MAX_HURT
+			indicateHurt = false
+			pass

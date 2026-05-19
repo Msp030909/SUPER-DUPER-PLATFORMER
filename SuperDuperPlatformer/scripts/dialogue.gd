@@ -15,6 +15,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if dialog.size() >= 1:
 		writing.text = String(dialog[index-1]) 
+	if Input.is_action_just_pressed("dialogue"):
+		_on_button_pressed()
 	pass
 
 
