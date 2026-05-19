@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="1_ju7n2"]
 [ext_resource type="Script" uid="uid://cbmbrm8t7ry4f" path="res://scripts/attack_component.gd" id="2_60ntw"]
 [ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/angle_finder.tscn" id="3_qhwd4"]
+[ext_resource type="Texture2D" uid="uid://c4t14jv531llf" path="res://assets/sprites/Slasholder.png" id="4_uflee"]
 [ext_resource type="Script" uid="uid://x07820mj0j5q" path="res://scripts/hitbox_component.gd" id="5_2frt8"]
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="6_7442g"]
 [ext_resource type="Script" uid="uid://16lto05d64am" path="res://scripts/move_component.gd" id="7_ey220"]
@@ -12,13 +13,34 @@
 [ext_resource type="Texture2D" uid="uid://ben3jdwl7glef" path="res://assets/sprites/Swordsman Attacking.png" id="9_6ej0a"]
 [ext_resource type="PackedScene" uid="uid://bcrcv7334imjk" path="res://scenes/animation_manager.tscn" id="10_qyir5"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_60ntw"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouoap"]
 size = Vector2(20, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60ntw"]
 size = Vector2(10, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("6_7442g")
+region = Rect2(32, 72, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uylah"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"aidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_uflee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhwd4"]
 size = Vector2(29, 11)
@@ -126,7 +148,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xask1")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 6.0
 }, {
@@ -169,7 +191,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rs66u")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_slash",
 "speed": 6.0
 }]
@@ -177,13 +199,8 @@ animations = [{
 [node name="SwordEnemy" type="CharacterBody2D" unique_id=2137883664]
 collision_layer = 2
 script = ExtResource("1_h2rq7")
-damage = 40
+damage = 20
 knockback = 30
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=129871625]
-position = Vector2(0, -5.5000005)
-scale = Vector2(20, 31)
-mesh = SubResource("BoxMesh_60ntw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1388947992]
 position = Vector2(0, -5.5)
@@ -195,11 +212,12 @@ animatedSprite2D = NodePath("../AnimatedSprite2D")
 deathTime = 2
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
 
-[node name="AttackComponent" type="Area2D" parent="." unique_id=1706094450 node_paths=PackedStringArray("animManager")]
+[node name="AttackComponent" type="Area2D" parent="." unique_id=1706094450 node_paths=PackedStringArray("sprites", "animManager")]
 position = Vector2(0, -5)
 collision_layer = 5
 script = ExtResource("2_60ntw")
-MAX_CD = 0.5
+sprites = NodePath("WeaponSprites")
+MAX_CD = 5.0
 animManager = NodePath("../AnimationManager")
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
@@ -207,16 +225,31 @@ metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 position = Vector2(15, -0.5)
 shape = SubResource("RectangleShape2D_60ntw")
 
-[node name="AttackComponent2" type="Area2D" parent="." unique_id=440793037]
+[node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent" unique_id=684222664]
+position = Vector2(0, -21)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_uylah")
+animation = &"aidle"
+autoplay = "aidle"
+
+[node name="AttackComponent2" type="Area2D" parent="." unique_id=440793037 node_paths=PackedStringArray("sprites")]
 position = Vector2(0, -5)
 collision_layer = 5
 script = ExtResource("2_60ntw")
+sprites = NodePath("WeaponSprites")
 MAX_CD = 0.5
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent2" unique_id=584095782]
 position = Vector2(0, -23)
 shape = SubResource("RectangleShape2D_qhwd4")
+
+[node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent2" unique_id=1485112979]
+position = Vector2(0, -21)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_uylah")
+animation = &"aidle"
+autoplay = "aidle"
 
 [node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("3_qhwd4")]
 position = Vector2(0, -5)
@@ -238,9 +271,8 @@ shape = SubResource("RectangleShape2D_2frt8")
 position = Vector2(1.0000019, -11)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_2frt8")
-animation = &"walk_slash"
+animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.8807942
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1448450667]
 position = Vector2(0, -6)

@@ -9,7 +9,7 @@ const JUMP_VELOCITY = -300.0
 var inv_timer: float= 1
 var invulnerable := false
 var alr_inv := false
-var health = 100
+@onready var health = $HealthComponent.health
 
 func _physics_process(delta: float) -> void:
 	Global.pHealth = $HealthComponent.health
@@ -69,7 +69,4 @@ func use_weapon():
 
 func health_up(value):
 	$HealthComponent.health += value
-	
-	
-	
 	pass

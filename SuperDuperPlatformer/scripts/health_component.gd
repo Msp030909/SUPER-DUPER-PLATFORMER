@@ -45,7 +45,6 @@ func damage(attack,anim):
 		print("this is the health now: ", health)
 		if HAS_INV:
 			invulnerable = true
-	
 	pass
 	
 func invulnerability(delta):

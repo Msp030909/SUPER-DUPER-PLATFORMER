@@ -7,6 +7,8 @@ signal attack_node
 var recipient
 var is_attacking: bool
 @export var animManager: AnimationManager
+@export var negKnockback: int
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +35,8 @@ func attack(damage, knockback):
 			#print("attacking, there is a recipient")
 			attack_node.connect(recipient.on_attack)
 			attack_node.emit(damage, knockback * int(scale.x))
+			if negKnockback:
+				get_parent().velocity.y = -negKnockback
 			attack_node.disconnect(recipient.on_attack)
 			#print("attacking")
 		atk_cooldown = MAX_CD

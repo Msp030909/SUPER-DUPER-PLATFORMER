@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 	
 	if attacking == true:
 		animSprite.play(initAnim + "_slash")
-		await animSprite.animation_finished
 		attacking = false
 	else:
+		await animSprite.animation_finished
 		animSprite.play(initAnim)
 	pass

@@ -24,3 +24,11 @@ func _on_play_pressed() -> void:
 		get_tree().change_scene_to_file("res://scenes/levels/level" + var_to_str(Global.level) + ".tscn")
 	print("trying to do stuff")
 	pass # Replace with function body.
+
+
+func _on_settings_pressed() -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	pass # Replace with function body.
