@@ -12,13 +12,17 @@ var alr_inv := false
 @onready var health = $HealthComponent.health
 @export var MAX_HEALTH_TIME := 10
 var healthTimer = MAX_HEALTH_TIME
+@export var healValue := 15
 
+var coyoteTimer: float
 
 func _physics_process(delta: float) -> void:
 	Global.pHealth = $HealthComponent.health
 	handle_movement(delta)
 	invulnerability(delta)
 	use_weapon()
+	if $HealthComponent.healTimer >= 5:
+		health_up(3)
 	pass
 
 func handle_movement(delta: float) -> void:
@@ -71,5 +75,7 @@ func use_weapon():
 		#print("tryna attack")
 
 func health_up(value):
-	$HealthComponent.health += value
+	$HealthComponent.health += value * get_process_delta_time()
+	if $HealthComponent.health == $HealthComponent.MAX_HEALTH:
+		$HealthComponent.healTimer = 0
 	pass

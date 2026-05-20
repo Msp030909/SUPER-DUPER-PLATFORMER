@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://ba3pkdd38gvm4"]
+
+[ext_resource type="Script" uid="uid://cwvo2yo4d1y5f" path="res://scenes/enemies/bumba.gd" id="1_j5ggc"]
+[ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="2_j5ggc"]
+[ext_resource type="Texture2D" uid="uid://bu0xnvs4hvqsq" path="res://assets/sprites/Goomba Enemy.png" id="3_5mjri"]
+[ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/components/hitbox_component.tscn" id="4_0h1r7"]
+[ext_resource type="Texture2D" uid="uid://70p155kj2ouw" path="res://assets/sprites/Bumba.png" id="4_j5ggc"]
+[ext_resource type="PackedScene" uid="uid://25y0qpocwua4" path="res://scenes/components/health_component.tscn" id="5_oaecd"]
+[ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/components/attack_component.tscn" id="6_qh3hn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an03s"]
+atlas = ExtResource("2_j5ggc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21hcc"]
+atlas = ExtResource("3_5mjri")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mjri"]
+atlas = ExtResource("4_j5ggc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h1r7"]
+atlas = ExtResource("4_j5ggc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaecd"]
+atlas = ExtResource("4_j5ggc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh3hn"]
+atlas = ExtResource("4_j5ggc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piakx"]
+atlas = ExtResource("4_j5ggc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wgi3"]
+atlas = ExtResource("4_j5ggc")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xycq"]
+atlas = ExtResource("2_j5ggc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sii0f"]
+atlas = ExtResource("2_j5ggc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki0ht"]
+atlas = ExtResource("2_j5ggc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yj1s3"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_an03s")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21hcc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mjri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h1r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaecd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh3hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_piakx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wgi3")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 0.04,
+"texture": SubResource("AtlasTexture_1xycq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sii0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki0ht")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_an03s")
+}],
+"loop": false,
+"name": &"stomped",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_508bv"]
+size = Vector2(22, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lml2"]
+size = Vector2(22, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xltp"]
+size = Vector2(3.5, 10)
+
+[node name="Goomba" type="CharacterBody2D" unique_id=1725147179]
+collision_layer = 2
+floor_max_angle = 0.0
+script = ExtResource("1_j5ggc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049966870]
+sprite_frames = SubResource("SpriteFrames_yj1s3")
+animation = &"moving"
+autoplay = "moving"
+frame_progress = 0.056178484
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1950563229]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_508bv")
+
+[node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("4_0h1r7")]
+collision_layer = 2
+stompDamage = 5.0
+health_component = NodePath("../HealthComponent")
+knockbackAffected = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=410250853]
+position = Vector2(0, -7.25)
+shape = SubResource("RectangleShape2D_5lml2")
+debug_color = Color(0.99503726, 0, 0.21984771, 0.41960785)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1738712266]
+position = Vector2(0, 3)
+target_position = Vector2(-25, 19)
+hit_from_inside = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1764099159]
+
+[node name="HealthComponent" parent="." unique_id=1212428773 node_paths=PackedStringArray("animatedSprite2D") instance=ExtResource("5_oaecd")]
+animatedSprite2D = NodePath("../AnimatedSprite2D")
+HAS_INV = true
+MAX_INV = 1.0
+
+[node name="playerDamagerL" parent="." unique_id=1535234396 instance=ExtResource("6_qh3hn")]
+position = Vector2(0, 3)
+MAX_CD = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDamagerL" unique_id=1166201721]
+position = Vector2(-13.25, 4)
+shape = SubResource("RectangleShape2D_6xltp")
+
+[node name="playerDamagerR" parent="." unique_id=589300143 instance=ExtResource("6_qh3hn")]
+position = Vector2(0, 3)
+MAX_CD = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDamagerR" unique_id=1399206088]
+position = Vector2(13.25, 4.25)
+shape = SubResource("RectangleShape2D_6xltp")
+
+[connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
+[connection signal="body_entered" from="HitboxComponent" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="playerDamagerL" to="." method="_on_player_damager_l_area_entered"]
+[connection signal="area_entered" from="playerDamagerR" to="." method="_on_player_damager_r_area_entered"]

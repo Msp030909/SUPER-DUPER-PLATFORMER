@@ -12,12 +12,14 @@ var postDmgTimer: float
 @export var MAX_HURT := 0.1
 var hurtTimer = MAX_HURT
 var indicateHurt = false
+var healTimer: float = 0
 
 
 var deathcause
 
-var health : float
-
+var health : float:
+	set(value):
+		health = clamp(value,0,MAX_HEALTH)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health = MAX_HEALTH
@@ -41,6 +43,7 @@ func _process(delta: float) -> void:
 		else:
 			get_parent().queue_free()
 	hurt_time(delta)
+	healTimer += 1 * delta;
 	pass
 
 func damage(attack,anim):
@@ -51,6 +54,7 @@ func damage(attack,anim):
 		indicateHurt = true
 		if HAS_INV:
 			invulnerable = true
+	healTimer = 0
 	pass
 	
 func invulnerability(delta):
