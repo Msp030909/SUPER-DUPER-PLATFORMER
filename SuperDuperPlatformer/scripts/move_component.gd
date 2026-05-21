@@ -7,6 +7,7 @@ var estimatedPos = 0
 @onready var newVel = 0
 @export var velSpeed: int
 @export var JUMPVEL: int
+@export var maxTimer = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -15,7 +16,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var maxTimer = 1
 	if timer >= maxTimer:
 		match angleFinder.xdir:
 			"forwards":

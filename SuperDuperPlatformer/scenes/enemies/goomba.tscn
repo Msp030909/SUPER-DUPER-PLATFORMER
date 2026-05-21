@@ -136,7 +136,7 @@ shape = SubResource("RectangleShape2D_508bv")
 
 [node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("4_5lml2")]
 collision_layer = 2
-stompDamage = 5.0
+stompDamage = 10.0
 health_component = NodePath("../HealthComponent")
 knockbackAffected = true
 
@@ -156,6 +156,7 @@ hit_from_inside = true
 animatedSprite2D = NodePath("../AnimatedSprite2D")
 HAS_INV = true
 MAX_INV = 1.0
+deathTime = 1
 
 [node name="playerDamagerL" parent="." unique_id=1535234396 instance=ExtResource("6_3hfl1")]
 position = Vector2(0, 3)

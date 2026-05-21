@@ -14,7 +14,7 @@ var already_collided: bool
 signal dealDamage
 
 
-@export var speed = 1
+@export var speed: float = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("I LIVE")
