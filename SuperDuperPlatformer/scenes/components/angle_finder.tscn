@@ -8,6 +8,7 @@
 script = ExtResource("1_1k6mc")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1260094731]
+visible = false
 position = Vector2(20, -1.4901161e-08)
 scale = Vector2(-40.500004, -0.7297298)
 mesh = SubResource("BoxMesh_tipki")
