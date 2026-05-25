@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://fryhmdqs8350" path="res://assets/sprites/New Piskel-1.png.png" id="1_kvjm0"]
 [ext_resource type="Texture2D" uid="uid://by0i88d7y6ddk" path="res://assets/sprites/Tileset.png" id="2_d2d03"]
 [ext_resource type="PackedScene" uid="uid://ds1mnhauox7c8" path="res://scenes/player/arenaplayer.tscn" id="3_d2d03"]
-[ext_resource type="PackedScene" uid="uid://cohvfhaa6djcn" path="res://scenes/ui/healthbar.tscn" id="4_d30w0"]
+[ext_resource type="Script" uid="uid://dwnsbiot3b1f2" path="res://scripts/arenaHealthbar.gd" id="4_cp0g4"]
+[ext_resource type="FontFile" uid="uid://dfv0lsvfvddiv" path="res://assets/fonts/Jersey_10/Jersey10-Regular.ttf" id="5_fb61o"]
 [ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/components/pit_component.tscn" id="5_myrex"]
 [ext_resource type="Script" uid="uid://blell7fj2qsfl" path="res://scenes/levels/spawn_manager.gd" id="6_5cda3"]
 
@@ -94,6 +95,17 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_0xm2m")
 sources/0 = SubResource("TileSetAtlasSource_d30w0")
 sources/1 = SubResource("TileSetAtlasSource_myrex")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulkio"]
+bg_color = Color(0.39748237, 4.5724212e-07, 1.6845763e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8nn8"]
+bg_color = Color(0, 0.83577746, 0.17784768, 1)
+
+[sub_resource type="Theme" id="Theme_25yk6"]
+ProgressBar/fonts/font = ExtResource("5_fb61o")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ulkio")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_y8nn8")
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5cda3"]
 
 [node name="Arena" type="Node2D" unique_id=564227292]
@@ -108,10 +120,47 @@ position = Vector2(-15, -99)
 zoom = Vector2(1.18, 1.18)
 
 [node name="Player" parent="." unique_id=1740163399 instance=ExtResource("3_d2d03")]
+position = Vector2(-35, -10)
+
+[node name="Player2" parent="." unique_id=908095054 instance=ExtResource("3_d2d03")]
+position = Vector2(27, -10)
+playerId = 2
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=970712940]
 
-[node name="Healthbar" parent="UI" unique_id=107195953 instance=ExtResource("4_d30w0")]
+[node name="ArenaHealthbar" type="Control" parent="UI" unique_id=107195953 node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 200.0
+offset_right = 200.0
+script = ExtResource("4_cp0g4")
+player = NodePath("../../Player")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/ArenaHealthbar" unique_id=1053295211]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 216.0
+offset_bottom = 28.0
+theme = SubResource("Theme_25yk6")
+
+[node name="ArenaHealthbar2" type="Control" parent="UI" unique_id=666720575 node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 800.0
+offset_right = 800.0
+script = ExtResource("4_cp0g4")
+player = NodePath("../../Player2")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/ArenaHealthbar2" unique_id=1870499962]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 216.0
+offset_bottom = 28.0
+theme = SubResource("Theme_25yk6")
 
 [node name="Label" type="Label" parent="UI" unique_id=533448402]
 offset_left = 1108.0

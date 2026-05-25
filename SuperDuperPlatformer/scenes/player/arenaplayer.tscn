@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://ds1mnhauox7c8"]
 
-[ext_resource type="Script" uid="uid://b4d3o55j000jr" path="res://scripts/player.gd" id="1_dy0m3"]
+[ext_resource type="Script" uid="uid://d0llp76aavfm0" path="res://scripts/arenaplayer.gd" id="1_cf030"]
 [ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/components/attack_component.tscn" id="3_8alr4"]
 [ext_resource type="Texture2D" uid="uid://c4t14jv531llf" path="res://assets/sprites/Slasholder.png" id="4_x844k"]
 [ext_resource type="Texture2D" uid="uid://dnhq6eosgf053" path="res://assets/sprites/Goomba Stomped.png" id="5_13o1e"]
 [ext_resource type="PackedScene" uid="uid://cux3cm3f44ggr" path="res://scenes/components/hitbox_component.tscn" id="6_7kulr"]
 [ext_resource type="Script" uid="uid://cowg0vxcxd8mu" path="res://scripts/health_component.gd" id="7_vqv6u"]
-[ext_resource type="PackedScene" uid="uid://dm4hc2fya736f" path="res://scenes/components/angle_finder.tscn" id="8_3k86k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 
@@ -42,10 +41,14 @@ animations = [{
 size = Vector2(22, 22)
 
 [node name="Player" type="CharacterBody2D" unique_id=1740163399]
+collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_dy0m3")
+script = ExtResource("1_cf030")
+playerId = null
 wepDamage = 2.0
 wepKnockback = 10.0
+MAX_HEALTH_TIME = null
+healValue = null
 COYOTE_TIME = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728889429]
@@ -105,6 +108,3 @@ HAS_INV = true
 MAX_INV = 1.0
 deathTime = 10
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
-
-[node name="AngleFinder" parent="." unique_id=2051327033 instance=ExtResource("8_3k86k")]
-trackPlayer = false

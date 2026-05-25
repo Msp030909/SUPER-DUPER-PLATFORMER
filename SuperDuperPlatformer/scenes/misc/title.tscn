@@ -37,6 +37,11 @@ layout_mode = 2
 theme = ExtResource("1_h05d6")
 text = "Play"
 
+[node name="Arena" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1058816824]
+layout_mode = 2
+theme = ExtResource("1_h05d6")
+text = "Arena"
+
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1804470681]
 layout_mode = 2
 theme = ExtResource("1_h05d6")
@@ -50,5 +55,6 @@ text = "Quit"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=830339994]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Arena" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_arena_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Settings" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_quit_pressed"]
