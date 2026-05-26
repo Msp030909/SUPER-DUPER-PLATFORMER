@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	use_weapon()
 	if $HealthComponent.healTimer >= 5:
 		health_up(3)
+	
 	pass
 
 func handle_movement(delta: float) -> void:
@@ -67,7 +68,6 @@ func deal_damage(damage, knockback):
 
 		
 func use_weapon():
-	var angleFinder = $AngleFinder
 	if Input.is_action_just_pressed("aP" + var_to_str(playerId) + "Action"):
 		match true:
 			true when aimDir > 0:
@@ -76,10 +76,10 @@ func use_weapon():
 			true when aimDir < 0:
 				$AttackComponent.scale.x = -1
 				$AttackComponent.attack(wepDamage, wepKnockback)
-			true when velocity.y != 0 and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkUp"):
+			true when is_on_floor() == false and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkUp"):
 				$AttackComponent2.scale.y = 1
 				$AttackComponent2.attack(wepDamage,wepKnockback)
-			true when velocity.y != and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkDown"):
+			true when is_on_floor() == false and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkDown"):
 				$AttackComponent2.scale.y = -1
 				$AttackComponent2.attack(wepDamage,wepKnockback)
 		#$AttackComponent.attack(wepDamage, wepKnockback)
