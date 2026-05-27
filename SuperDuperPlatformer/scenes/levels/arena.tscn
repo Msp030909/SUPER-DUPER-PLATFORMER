@@ -119,21 +119,23 @@ tile_set = SubResource("TileSet_5cda3")
 position = Vector2(-15, -99)
 zoom = Vector2(1.18, 1.18)
 
-[node name="Player" parent="." unique_id=1740163399 instance=ExtResource("3_d2d03")]
+[node name="Players" type="Node2D" parent="." unique_id=1032024237]
+
+[node name="Player" parent="Players" unique_id=1740163399 instance=ExtResource("3_d2d03")]
 position = Vector2(-35, -10)
 color = Color(1, 0, 0, 1)
 
-[node name="Player2" parent="." unique_id=908095054 instance=ExtResource("3_d2d03")]
+[node name="Player2" parent="Players" unique_id=908095054 instance=ExtResource("3_d2d03")]
 position = Vector2(27, -10)
 color = Color(0, 0, 1, 1)
 playerId = 2
 
-[node name="Player3" parent="." unique_id=458254283 instance=ExtResource("3_d2d03")]
+[node name="Player3" parent="Players" unique_id=458254283 instance=ExtResource("3_d2d03")]
 position = Vector2(75, -10)
 color = Color(0, 1, 0, 1)
 playerId = 3
 
-[node name="Player4" parent="." unique_id=1975918346 instance=ExtResource("3_d2d03")]
+[node name="Player4" parent="Players" unique_id=1975918346 instance=ExtResource("3_d2d03")]
 position = Vector2(-85, -10)
 color = Color(1, 1, 0, 1)
 playerId = 4
@@ -146,7 +148,7 @@ anchors_preset = 0
 offset_left = 200.0
 offset_right = 200.0
 script = ExtResource("4_cp0g4")
-player = NodePath("../../Player")
+player = NodePath("../../Players/Player")
 metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="UI/ArenaHealthbar" unique_id=1053295211]
@@ -163,7 +165,7 @@ anchors_preset = 0
 offset_left = 800.0
 offset_right = 800.0
 script = ExtResource("4_cp0g4")
-player = NodePath("../../Player2")
+player = NodePath("../../Players/Player2")
 metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="UI/ArenaHealthbar2" unique_id=1870499962]
@@ -180,8 +182,6 @@ offset_top = 4.0
 offset_right = 1144.0
 offset_bottom = 22.0
 text = "WAVE:"
-
-[node name="Players" type="Node2D" parent="." unique_id=1032024237]
 
 [node name="SpawnManager" type="Node2D" parent="." unique_id=1004297331]
 script = ExtResource("6_5cda3")
