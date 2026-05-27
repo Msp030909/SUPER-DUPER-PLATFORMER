@@ -61,7 +61,7 @@ sprites = NodePath("WeaponSprites")
 MAX_CD = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=109039512]
-position = Vector2(21, 0)
+position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent" unique_id=2071374719]
@@ -105,3 +105,5 @@ HAS_INV = true
 MAX_INV = 0.5
 deathTime = 10
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"
+
+[connection signal="ready" from="." to="." method="_on_ready"]

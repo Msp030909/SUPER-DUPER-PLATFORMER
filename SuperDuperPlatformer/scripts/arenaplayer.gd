@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name ArenaPlayer
 
+@export var color := Color.WHITE
 @export var playerId: int = 1
 @export var wepDamage: float
 @export var wepKnockback: float
@@ -69,7 +70,7 @@ func deal_damage(damage, knockback):
 		
 func use_weapon():
 	if Input.is_action_just_pressed("aP" + var_to_str(playerId) + "Action"):
-		if  is_on_floor() == false and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkUp"):
+		if  Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkUp"):
 				$AttackComponent2.scale.y = 1
 				$AttackComponent2.attack(wepDamage,wepKnockback)
 		elif is_on_floor() == false and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkDown"):
@@ -92,3 +93,8 @@ func health_up(value):
 	if $HealthComponent.health == $HealthComponent.MAX_HEALTH:
 		$HealthComponent.healTimer = 0
 	pass
+
+
+func _on_ready() -> void:
+	$MeshInstance2D.modulate = color
+	pass # Replace with function body.
