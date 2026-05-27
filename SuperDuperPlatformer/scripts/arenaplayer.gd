@@ -20,7 +20,7 @@ var aimDir = 1
 var coyoteTimer: float
 
 func _physics_process(delta: float) -> void:
-	Global.pHealth = $HealthComponent.health
+	health = $HealthComponent.health
 	handle_movement(delta)
 	invulnerability(delta)
 	use_weapon()
@@ -69,19 +69,21 @@ func deal_damage(damage, knockback):
 		
 func use_weapon():
 	if Input.is_action_just_pressed("aP" + var_to_str(playerId) + "Action"):
-		match true:
-			true when aimDir > 0:
-				$AttackComponent.scale.x = 1
-				$AttackComponent.attack(wepDamage, wepKnockback)
-			true when aimDir < 0:
-				$AttackComponent.scale.x = -1
-				$AttackComponent.attack(wepDamage, wepKnockback)
-			true when is_on_floor() == false and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkUp"):
+		if  is_on_floor() == false and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkUp"):
 				$AttackComponent2.scale.y = 1
 				$AttackComponent2.attack(wepDamage,wepKnockback)
-			true when is_on_floor() == false and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkDown"):
+		elif is_on_floor() == false and Input.is_action_pressed("aP" + var_to_str(playerId) + "AtkDown"):
 				$AttackComponent2.scale.y = -1
 				$AttackComponent2.attack(wepDamage,wepKnockback)
+		else:
+			match true:
+				true when aimDir > 0:
+					$AttackComponent.scale.x = 1
+					$AttackComponent.attack(wepDamage, wepKnockback)
+				true when aimDir < 0:
+					$AttackComponent.scale.x = -1
+					$AttackComponent.attack(wepDamage, wepKnockback)
+		
 		#$AttackComponent.attack(wepDamage, wepKnockback)
 		#print("tryna attack")
 

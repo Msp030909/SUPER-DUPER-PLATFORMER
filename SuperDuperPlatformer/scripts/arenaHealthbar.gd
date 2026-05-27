@@ -10,6 +10,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player.health:
+	
+	if is_instance_valid(player):
 		$ProgressBar.value = player.health
+		print($ProgressBar.value)
 	pass

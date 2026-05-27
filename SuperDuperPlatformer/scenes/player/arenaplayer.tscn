@@ -43,7 +43,7 @@ size = Vector2(22, 22)
 [node name="Player" type="CharacterBody2D" unique_id=1740163399]
 collision_mask = 3
 script = ExtResource("1_cf030")
-wepDamage = 2.0
+wepDamage = 15.0
 wepKnockback = 10.0
 COYOTE_TIME = 0.2
 
@@ -90,6 +90,7 @@ animation = &"aidle"
 autoplay = "aidle"
 
 [node name="HitboxComponent" parent="." unique_id=882732331 node_paths=PackedStringArray("health_component") instance=ExtResource("6_7kulr")]
+collision_layer = 3
 health_component = NodePath("../HealthComponent")
 damage_type = 1
 knockbackAffected = true
@@ -101,6 +102,6 @@ shape = SubResource("RectangleShape2D_fjrip")
 script = ExtResource("7_vqv6u")
 MAX_HEALTH = 100.0
 HAS_INV = true
-MAX_INV = 1.0
+MAX_INV = 0.5
 deathTime = 10
 metadata/_custom_type_script = "uid://cowg0vxcxd8mu"

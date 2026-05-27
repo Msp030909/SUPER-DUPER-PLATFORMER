@@ -45,7 +45,8 @@ func attack(damage, knockback):
 
 
 func _on_area_entered(area: hitboxComponent) -> void:
-	recipient = area
+	if area.get_parent() != self.get_parent():
+		recipient = area
 	print(recipient)
 	pass # Replace with function body.
 
