@@ -12,4 +12,6 @@ func _process(delta: float) -> void:
 	
 	if is_instance_valid(player):
 		$ProgressBar.value = player.health
+	else:
+		$ProgressBar.value = 0
 	pass
