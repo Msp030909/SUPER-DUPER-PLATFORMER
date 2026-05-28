@@ -1,18 +1,18 @@
-[gd_scene format=4 uid="uid://cj22jmmn58q05"]
+[gd_scene format=4 uid="uid://dd40qmhj0bk2n"]
 
-[ext_resource type="Script" uid="uid://ctpkfp7aq0ngd" path="res://scenes/levels/arena.gd" id="1_fb61o"]
-[ext_resource type="Texture2D" uid="uid://fryhmdqs8350" path="res://assets/sprites/New Piskel-1.png.png" id="1_kvjm0"]
-[ext_resource type="Texture2D" uid="uid://by0i88d7y6ddk" path="res://assets/sprites/Tileset.png" id="2_d2d03"]
-[ext_resource type="PackedScene" uid="uid://ds1mnhauox7c8" path="res://scenes/player/arenaplayer.tscn" id="3_d2d03"]
-[ext_resource type="Script" uid="uid://dwnsbiot3b1f2" path="res://scripts/arenaHealthbar.gd" id="4_cp0g4"]
-[ext_resource type="FontFile" uid="uid://dfv0lsvfvddiv" path="res://assets/fonts/Jersey_10/Jersey10-Regular.ttf" id="5_fb61o"]
-[ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/components/pit_component.tscn" id="5_myrex"]
-[ext_resource type="Script" uid="uid://blell7fj2qsfl" path="res://scenes/levels/spawn_manager.gd" id="6_5cda3"]
+[ext_resource type="Script" uid="uid://ctpkfp7aq0ngd" path="res://scenes/levels/arena.gd" id="1_x2bfa"]
+[ext_resource type="Texture2D" uid="uid://fryhmdqs8350" path="res://assets/sprites/New Piskel-1.png.png" id="2_pa7bq"]
+[ext_resource type="Texture2D" uid="uid://by0i88d7y6ddk" path="res://assets/sprites/Tileset.png" id="3_lvqjh"]
+[ext_resource type="PackedScene" uid="uid://ds1mnhauox7c8" path="res://scenes/player/arenaplayer.tscn" id="4_ewvsq"]
+[ext_resource type="Script" uid="uid://dwnsbiot3b1f2" path="res://scripts/arenaHealthbar.gd" id="5_x3nih"]
+[ext_resource type="FontFile" uid="uid://dfv0lsvfvddiv" path="res://assets/fonts/Jersey_10/Jersey10-Regular.ttf" id="6_t1i53"]
+[ext_resource type="Script" uid="uid://blell7fj2qsfl" path="res://scenes/levels/spawn_manager.gd" id="7_r1fk5"]
+[ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/components/pit_component.tscn" id="8_11ley"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d30w0"]
-texture = ExtResource("1_kvjm0")
+texture = ExtResource("2_pa7bq")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -34,7 +34,7 @@ texture = ExtResource("1_kvjm0")
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_myrex"]
-texture = ExtResource("2_d2d03")
+texture = ExtResource("3_lvqjh")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -104,7 +104,7 @@ bg_color = Color(0.39748237, 4.5724212e-07, 1.6845763e-07, 1)
 bg_color = Color(0, 0.83577746, 0.17784768, 1)
 
 [sub_resource type="Theme" id="Theme_25yk6"]
-ProgressBar/fonts/font = ExtResource("5_fb61o")
+ProgressBar/fonts/font = ExtResource("6_t1i53")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_ulkio")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_y8nn8")
 
@@ -114,16 +114,10 @@ bg_color = Color(1, 0.116666675, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb61o"]
 bg_color = Color(0, 0.31666684, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wh3gv"]
-bg_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gdmk"]
-bg_color = Color(0.79, 0.79, 0.1975, 1)
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5cda3"]
 
 [node name="Arena" type="Node2D" unique_id=564227292]
-script = ExtResource("1_fb61o")
+script = ExtResource("1_x2bfa")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1194004708]
 texture_filter = 1
@@ -136,24 +130,14 @@ zoom = Vector2(1.18, 1.18)
 
 [node name="Players" type="Node2D" parent="." unique_id=1032024237]
 
-[node name="Player" parent="Players" unique_id=1740163399 instance=ExtResource("3_d2d03")]
+[node name="Player" parent="Players" unique_id=1740163399 instance=ExtResource("4_ewvsq")]
 position = Vector2(-35, -10)
 color = Color(1, 0, 0, 1)
 
-[node name="Player2" parent="Players" unique_id=908095054 instance=ExtResource("3_d2d03")]
+[node name="Player2" parent="Players" unique_id=908095054 instance=ExtResource("4_ewvsq")]
 position = Vector2(27, -10)
 color = Color(0, 0, 1, 1)
 playerId = 2
-
-[node name="Player3" parent="Players" unique_id=458254283 instance=ExtResource("3_d2d03")]
-position = Vector2(75, -10)
-color = Color(0, 1, 0, 1)
-playerId = 3
-
-[node name="Player4" parent="Players" unique_id=1975918346 instance=ExtResource("3_d2d03")]
-position = Vector2(-85, -10)
-color = Color(1, 1, 0, 1)
-playerId = 4
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=970712940]
 
@@ -162,7 +146,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 200.0
 offset_right = 200.0
-script = ExtResource("4_cp0g4")
+script = ExtResource("5_x3nih")
 player = NodePath("../../Players/Player")
 metadata/_edit_use_anchors_ = true
 
@@ -180,7 +164,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 800.0
 offset_right = 800.0
-script = ExtResource("4_cp0g4")
+script = ExtResource("5_x3nih")
 player = NodePath("../../Players/Player2")
 
 [node name="ProgressBar" type="ProgressBar" parent="UI/ArenaHealthbar2" unique_id=1870499962]
@@ -199,18 +183,9 @@ offset_left = 200.0
 offset_top = 44.0
 offset_right = 200.0
 offset_bottom = 44.0
-script = ExtResource("4_cp0g4")
-player = NodePath("../../Players/Player3")
+script = ExtResource("5_x3nih")
+player = NodePath("")
 metadata/_edit_use_anchors_ = true
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/ArenaHealthbar3" unique_id=354942886]
-layout_mode = 0
-offset_left = 8.0
-offset_top = -11.0
-offset_right = 216.0
-offset_bottom = 13.0
-theme = SubResource("Theme_25yk6")
-theme_override_styles/fill = SubResource("StyleBoxFlat_wh3gv")
 
 [node name="ArenaHealthbar4" type="Control" parent="UI" unique_id=624508706 node_paths=PackedStringArray("player")]
 layout_mode = 3
@@ -219,18 +194,9 @@ offset_left = 800.0
 offset_top = 40.0
 offset_right = 800.0
 offset_bottom = 40.0
-script = ExtResource("4_cp0g4")
-player = NodePath("../../Players/Player4")
+script = ExtResource("5_x3nih")
+player = NodePath("")
 metadata/_edit_use_anchors_ = true
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/ArenaHealthbar4" unique_id=664053032]
-layout_mode = 0
-offset_left = 8.0
-offset_top = -5.0
-offset_right = 216.0
-offset_bottom = 18.999998
-theme = SubResource("Theme_25yk6")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6gdmk")
 
 [node name="Label" type="Label" parent="UI" unique_id=533448402]
 offset_left = 1108.0
@@ -240,7 +206,7 @@ offset_bottom = 22.0
 text = "WAVE:"
 
 [node name="SpawnManager" type="Node2D" parent="." unique_id=1004297331]
-script = ExtResource("6_5cda3")
+script = ExtResource("7_r1fk5")
 
 [node name="Spawn1" type="Marker2D" parent="SpawnManager" unique_id=1854319364]
 position = Vector2(432, -77)
@@ -254,7 +220,7 @@ position = Vector2(0, -240)
 [node name="Spawn4" type="Marker2D" parent="SpawnManager" unique_id=567260673]
 position = Vector2(0, -200)
 
-[node name="PitComponent" parent="." unique_id=1124729358 instance=ExtResource("5_myrex")]
+[node name="PitComponent" parent="." unique_id=1124729358 instance=ExtResource("8_11ley")]
 position = Vector2(0, 180)
 arena = true
 

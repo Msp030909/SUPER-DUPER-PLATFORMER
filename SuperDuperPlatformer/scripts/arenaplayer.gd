@@ -98,3 +98,13 @@ func health_up(value):
 func _on_ready() -> void:
 	$MeshInstance2D.modulate = color
 	pass # Replace with function body.
+	
+func _on_fell() -> void:
+	set_collision_mask_value(1, false)
+	set_collision_layer_value(3, true)
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(3, true)
+	await get_tree().create_timer(3).timeout
+	set_collision_mask_value(1, true)
+	set_collision_layer_value(3, false)
+	set_collision_layer_value(1, true)

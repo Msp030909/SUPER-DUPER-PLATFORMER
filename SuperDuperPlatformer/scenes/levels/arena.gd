@@ -3,10 +3,11 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for player in playerCount:
-		var playerBody = preload("res://scenes/player/arenaplayer.tscn").instantiate()
-		playerBody.$MeshInstance.
-		add_child(playerBody)
+	Global.checkpoint = Vector2(0,-10)
+	#for player in playerCount:
+		#var playerBody = preload("res://scenes/player/arenaplayer.tscn").instantiate()
+		#playerBody.$MeshInstance.
+		#add_child(playerBody)
 	pass # Replace with function body.
 
 
