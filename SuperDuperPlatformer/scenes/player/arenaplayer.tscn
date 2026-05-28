@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
-size = Vector2(22, 22)
+size = Vector2(22, 30)
 
 [node name="Player" type="CharacterBody2D" unique_id=1740163399]
 collision_mask = 3
@@ -61,7 +61,7 @@ sprites = NodePath("WeaponSprites")
 MAX_CD = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=109039512]
-position = Vector2(20, 0)
+position = Vector2(19, 0)
 shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent" unique_id=2071374719]
