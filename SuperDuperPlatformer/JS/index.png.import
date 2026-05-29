@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sba8178l2cf8"
-path="res://.godot/imported/Super duper platformer.png-65a541e2b9b0c48ec6ec2dbbb48cb8d0.ctex"
+uid="uid://cxfnee5r0ynox"
+path="res://.godot/imported/index.png-2a86fdd99ce8dc15dd73177610dc0266.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JS/Super duper platformer.png"
-dest_files=["res://.godot/imported/Super duper platformer.png-65a541e2b9b0c48ec6ec2dbbb48cb8d0.ctex"]
+source_file="res://JS/index.png"
+dest_files=["res://.godot/imported/index.png-2a86fdd99ce8dc15dd73177610dc0266.ctex"]
 
 [params]
 

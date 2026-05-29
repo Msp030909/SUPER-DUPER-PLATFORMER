@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di6xnif44wj1l"
-path="res://.godot/imported/Super duper platformer.apple-touch-icon.png-d74a8660271edaff658169dac7891f6e.ctex"
+uid="uid://cjpnwr6pu6r6o"
+path="res://.godot/imported/index.icon.png-b6710fa43d141140dfadb4bb9255d8dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JS/Super duper platformer.apple-touch-icon.png"
-dest_files=["res://.godot/imported/Super duper platformer.apple-touch-icon.png-d74a8660271edaff658169dac7891f6e.ctex"]
+source_file="res://JS/index.icon.png"
+dest_files=["res://.godot/imported/index.icon.png-b6710fa43d141140dfadb4bb9255d8dc.ctex"]
 
 [params]
 
