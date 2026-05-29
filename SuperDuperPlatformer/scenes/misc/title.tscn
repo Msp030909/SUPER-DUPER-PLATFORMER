@@ -40,7 +40,12 @@ text = "Play"
 [node name="Arena" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1058816824]
 layout_mode = 2
 theme = ExtResource("1_h05d6")
-text = "Arena"
+text = "Arena (4 Player)"
+
+[node name="Arena2" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=406546223]
+layout_mode = 2
+theme = ExtResource("1_h05d6")
+text = "Arena (2 Player)"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1804470681]
 layout_mode = 2
@@ -56,5 +61,6 @@ text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Arena" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_arena_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Arena2" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_arena_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Settings" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_quit_pressed"]

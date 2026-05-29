@@ -37,3 +37,8 @@ func _on_settings_pressed() -> void:
 func _on_arena_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/levels/arena.tscn")
 	pass # Replace with function body.
+
+
+func _on_arena_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/levels/arena2p.tscn")
+	pass # Replace with function body.

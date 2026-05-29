@@ -16,4 +16,6 @@ func _process(delta: float) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if Input.is_action_just_pressed("menuReturn"):
+		get_tree().change_scene_to_file("res://scenes/misc/title.tscn")
 	pass
