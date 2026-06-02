@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/components/pit_component.tscn" id="5_myrex"]
 [ext_resource type="Script" uid="uid://b71emb33wlu8u" path="res://scenes/levels/ui.gd" id="5_wh3gv"]
 [ext_resource type="Script" uid="uid://blell7fj2qsfl" path="res://scenes/levels/spawn_manager.gd" id="6_5cda3"]
+[ext_resource type="PackedScene" uid="uid://dmi4ky0xjgbil" path="res://scenes/components/portal_component.tscn" id="10_6gdmk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
 
@@ -122,6 +123,9 @@ bg_color = Color(0, 1, 0, 1)
 bg_color = Color(0.79, 0.79, 0.1975, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5cda3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gdmk"]
+size = Vector2(8, 121)
 
 [node name="Arena" type="Node2D" unique_id=564227292]
 script = ExtResource("1_fb61o")
@@ -283,6 +287,22 @@ arena = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitComponent" unique_id=1068766178]
 shape = SubResource("WorldBoundaryShape2D_5cda3")
+
+[node name="PortalComponent" parent="." unique_id=367311448 node_paths=PackedStringArray("destination") instance=ExtResource("10_6gdmk")]
+position = Vector2(-492, -393)
+destination = NodePath("../PortalComponent2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalComponent" unique_id=1330962477]
+position = Vector2(-7, 269.5)
+shape = SubResource("RectangleShape2D_6gdmk")
+
+[node name="PortalComponent2" parent="." unique_id=1085229231 node_paths=PackedStringArray("destination") instance=ExtResource("10_6gdmk")]
+position = Vector2(469, -393)
+destination = NodePath("../PortalComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalComponent2" unique_id=960705421]
+position = Vector2(-1, 269.5)
+shape = SubResource("RectangleShape2D_6gdmk")
 
 [connection signal="pressed" from="UI2/RichTextLabel/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI2/RichTextLabel/Button" to="UI2" method="_on_button_pressed"]

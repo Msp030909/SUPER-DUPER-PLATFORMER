@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	if trackPlayer != true:
 		look_at(get_global_mouse_position())
 	else:
-		look_at($"../../Player".global_position)
+		look_at($"../../../Player".global_position)
 	#rotation = lerp_angle(rotation,angle, delta)
 	var rangle = round(angle)
 	#print(rangle)
