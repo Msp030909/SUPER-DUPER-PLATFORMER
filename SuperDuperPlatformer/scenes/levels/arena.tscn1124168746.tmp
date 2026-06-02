@@ -291,7 +291,6 @@ shape = SubResource("WorldBoundaryShape2D_5cda3")
 [node name="PortalComponent" parent="." unique_id=367311448 node_paths=PackedStringArray("destination") instance=ExtResource("10_6gdmk")]
 position = Vector2(-492, -393)
 destination = NodePath("../PortalComponent2")
-dir = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalComponent" unique_id=1330962477]
 position = Vector2(-10.5, 279)
@@ -300,10 +299,9 @@ shape = SubResource("RectangleShape2D_6gdmk")
 [node name="PortalComponent2" parent="." unique_id=1085229231 node_paths=PackedStringArray("destination") instance=ExtResource("10_6gdmk")]
 position = Vector2(469, -393)
 destination = NodePath("../PortalComponent")
-dir = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalComponent2" unique_id=960705421]
-position = Vector2(3, 279)
+position = Vector2(1, 279)
 shape = SubResource("RectangleShape2D_6gdmk")
 
 [connection signal="pressed" from="UI2/RichTextLabel/Button" to="." method="_on_button_pressed"]
