@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bclf5rw7711gv"]
+
+[ext_resource type="Texture2D" uid="uid://drhryf3rfy71p" path="res://assets/sprites/Locked Door-1.png.png" id="1_bl32i"]
+[ext_resource type="Script" uid="uid://dn0xpg13dicgc" path="res://scenes/components/door.gd" id="1_gm61j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_naxw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bl32i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hun61"]
+size = Vector2(32, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1947145323]
+script = ExtResource("1_gm61j")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1938313512]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=86254239]
+sprite_frames = SubResource("SpriteFrames_naxw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=664599833]
+shape = SubResource("RectangleShape2D_hun61")

@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://blell7fj2qsfl" path="res://scenes/levels/spawn_manager.gd" id="7_r1fk5"]
 [ext_resource type="PackedScene" uid="uid://co1vge4s4scfa" path="res://scenes/components/pit_component.tscn" id="8_11ley"]
 [ext_resource type="Script" uid="uid://b71emb33wlu8u" path="res://scenes/levels/ui.gd" id="9_pa7bq"]
+[ext_resource type="PackedScene" uid="uid://dmi4ky0xjgbil" path="res://scenes/components/portal_component.tscn" id="10_lvqjh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
 
@@ -116,6 +117,9 @@ bg_color = Color(1, 0.116666675, 0, 1)
 bg_color = Color(0, 0.31666684, 1, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5cda3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewvsq"]
+size = Vector2(1, 160)
 
 [node name="Arena" type="Node2D" unique_id=564227292]
 script = ExtResource("1_x2bfa")
@@ -234,5 +238,23 @@ offset_bottom = 13.048004
 grow_horizontal = 2
 grow_vertical = 2
 text = "RESTART"
+
+[node name="PortalComponent" parent="." unique_id=367311448 node_paths=PackedStringArray("destination") instance=ExtResource("10_lvqjh")]
+position = Vector2(-492, -393)
+destination = NodePath("../PortalComponent2")
+dir = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalComponent" unique_id=749669548]
+position = Vector2(-10.5, 279)
+shape = SubResource("RectangleShape2D_ewvsq")
+
+[node name="PortalComponent2" parent="." unique_id=1382429239 node_paths=PackedStringArray("destination") instance=ExtResource("10_lvqjh")]
+position = Vector2(469, -393)
+destination = NodePath("../PortalComponent")
+dir = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalComponent2" unique_id=936949909]
+position = Vector2(3, 279)
+shape = SubResource("RectangleShape2D_ewvsq")
 
 [connection signal="pressed" from="UI2/RichTextLabel/Button" to="UI2" method="_on_button_pressed"]
