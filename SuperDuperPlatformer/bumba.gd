@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var player: CharacterBody2D = $"../Player"
 @onready var rayCast: RayCast2D = $RayCast2D
+@onready var bumpCast: RayCast2D = $BumpRayCast
 @onready var playerDamagerL: RayCast2D = $PlayerDamagerL
 @onready var playerDamagerR: RayCast2D = $PlayerDamagerR
 @export var damage = 20
@@ -43,12 +44,18 @@ func collide(delta):
 		#else:
 			#already_collided = false
 		#this is NOT super optimized I don't like this very much but it's the simplest way to do collision
+	if bumpCast.is_colliding() == true:
+			direction = -direction
+			print("direction should be switched now")
+			print(direction)
+			$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
 	if rayCast.is_colliding() != true:
 			direction = -direction
 			print("direction should be switched now")
 			print(direction)
-			rayCast.scale.x *= -1
 			$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
+	rayCast.scale.x = direction
+	bumpCast.scale.x = direction
 	pass
 	
 #func hurtPlayer(orientation):
