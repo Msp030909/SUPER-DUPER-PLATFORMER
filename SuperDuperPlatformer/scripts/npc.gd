@@ -1,5 +1,5 @@
 extends Node2D
-@onready var canvas: CanvasLayer = $"../CanvasLayer"
+@onready var canvas: CanvasLayer = $"../../CanvasLayer"
 @export var dialog: Array[String]
 var emptyDialog: Array[String]
 signal playerNear(words)
