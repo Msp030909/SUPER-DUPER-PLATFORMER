@@ -13,11 +13,14 @@ var alr_inv := false
 @export var MAX_HEALTH_TIME := 10
 var healthTimer = MAX_HEALTH_TIME
 @export var healValue := 15
+var dying = false
 
 @export var COYOTE_TIME: float
 var coyoteTimer: float
 
 func _physics_process(delta: float) -> void:
+	if dying == true:
+		on_die()	
 	Global.pHealth = $HealthComponent.health
 	handle_movement(delta)
 	invulnerability(delta)
@@ -83,4 +86,8 @@ func health_up(value):
 	$HealthComponent.health += value * get_process_delta_time()
 	if $HealthComponent.health == $HealthComponent.MAX_HEALTH:
 		$HealthComponent.healTimer = 0
+	pass
+
+func on_die():
+	get_tree().change_scene_to_file("res://scenes/misc/gameover.tscn")
 	pass

@@ -3,7 +3,7 @@ class_name moveComponent
 var timer = 0
 var estimatedPos = 0
 @export var angleFinder: angleFinder
-@onready var player = $"../../Player"
+@onready var player = $"../../../Player"
 @onready var newVel = 0
 @export var velSpeed: int
 @export var JUMPVEL: int

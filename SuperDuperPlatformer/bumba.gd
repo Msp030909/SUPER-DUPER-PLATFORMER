@@ -1,10 +1,7 @@
 extends CharacterBody2D
 
-@onready var player: CharacterBody2D = $"../Player"
 @onready var rayCast: RayCast2D = $RayCast2D
 @onready var bumpCast: RayCast2D = $BumpRayCast
-@onready var playerDamagerL: RayCast2D = $PlayerDamagerL
-@onready var playerDamagerR: RayCast2D = $PlayerDamagerR
 @export var damage = 20
 @export var knockback = -15
 @export var direction := 1

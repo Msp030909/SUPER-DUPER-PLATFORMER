@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://de5awrva0ta4e"]
+
+[ext_resource type="Script" uid="uid://6gahfxqtm1lt" path="res://scripts/dialogue.gd" id="1_wnuu5"]
+[ext_resource type="Theme" uid="uid://wbrk22i2h7by" path="res://assets/fonts/labeltheme.tres" id="2_i6c16"]
+[ext_resource type="Script" uid="uid://dd3fttlpri5ae" path="res://scripts/gameover.gd" id="3_ngfcr"]
+
+[node name="Control" type="Control" unique_id=2111789826]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wnuu5")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1229460796]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -4.0
+offset_right = 1160.0
+offset_bottom = 644.0
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1632622647]
+layout_mode = 2
+alignment = 1
+script = ExtResource("3_ngfcr")
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1214963135]
+layout_mode = 2
+theme = ExtResource("2_i6c16")
+text = "Play Again"
+
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1848806767]
+layout_mode = 2
+theme = ExtResource("2_i6c16")
+text = "Back to Menu"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=408480331]
+layout_mode = 2
+theme = ExtResource("2_i6c16")
+text = "This Game Stinks! I'm Quitting."
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="MarginContainer/VBoxContainer" method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="MarginContainer/VBoxContainer" method="_on_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer" method="_on_quit_pressed"]

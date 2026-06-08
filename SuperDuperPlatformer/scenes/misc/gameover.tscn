@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bv1r3n5oyvqkr"]
+
+[ext_resource type="Theme" uid="uid://wbrk22i2h7by" path="res://assets/fonts/labeltheme.tres" id="1_0m6qx"]
+[ext_resource type="Script" uid="uid://dd3fttlpri5ae" path="res://scripts/gameover.gd" id="2_0m6qx"]
+
+[node name="Node2D" type="Node2D" unique_id=1993060417]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1593688069]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1567278669]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=587308486]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=158715020]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_0m6qx")
+bbcode_enabled = true
+text = "[b]YOU DIED ):[/b]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1175539139]
+layout_mode = 2
+alignment = 1
+script = ExtResource("2_0m6qx")
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1101132117]
+layout_mode = 2
+theme = ExtResource("1_0m6qx")
+text = "Play Again"
+
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=765462913]
+layout_mode = 2
+theme = ExtResource("1_0m6qx")
+text = "Back to Menu"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=2046016700]
+layout_mode = 2
+theme = ExtResource("1_0m6qx")
+text = "This Game Stinks! I'm Quitting."
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2032317434]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Menu" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/VBoxContainer" method="_on_quit_pressed"]
