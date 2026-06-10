@@ -8,7 +8,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
+	if Input.is_action_just_pressed("pause"):
+		$CanvasLayer.add_child(preload("res://scenes/ui/pausemenu.tscn").instantiate())
+		get_tree().paused = true
 	pass
 
 func _on_player_npc_prox():

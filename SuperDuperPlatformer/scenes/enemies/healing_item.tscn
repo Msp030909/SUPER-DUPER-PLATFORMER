@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ctkjrl7uoyxyd"]
+
+[ext_resource type="Script" uid="uid://b30fs5uccho2s" path="res://scenes/enemies/healing_item.gd" id="1_l13nl"]
+[ext_resource type="PackedScene" uid="uid://bt25a44grrd2j" path="res://scenes/components/attack_component.tscn" id="2_rgaaj"]
+[ext_resource type="Texture2D" uid="uid://da6eceibjcg05" path="res://assets/sprites/Medkit.png" id="3_v3ynv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l13nl"]
+
+[node name="Node2D" type="Node2D" unique_id=282675945]
+script = ExtResource("1_l13nl")
+heal = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=370308091]
+position = Vector2(-8, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_v3ynv")
+
+[node name="AttackComponent" parent="." unique_id=1535234396 instance=ExtResource("2_rgaaj")]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1008067670]
+position = Vector2(-8, -8)
+shape = SubResource("RectangleShape2D_l13nl")
+
+[connection signal="area_entered" from="AttackComponent" to="." method="_on_attack_component_area_entered"]

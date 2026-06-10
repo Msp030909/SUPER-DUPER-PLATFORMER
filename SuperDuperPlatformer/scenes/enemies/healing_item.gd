@@ -1,15 +1,18 @@
 extends Node2D
-@export var playerCount := 2
+@export var heal: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.checkpoint = Vector2(0,-10)
-	$UI2.hide()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("menuReturn"):
-		get_tree().change_scene_to_file("res://scenes/misc/title.tscn")
 	pass
+
+
+func _on_attack_component_area_entered(area: hitboxComponent) -> void:
+	if area.get_parent() is Player or ArenaPlayer:
+		await $AttackComponent.attack(-heal,0)
+		queue_free()
+	pass # Replace with function body.
