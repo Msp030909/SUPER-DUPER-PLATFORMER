@@ -30,7 +30,7 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	
 func on_attack(damage, knockback):
 	health_component.damage(damage, "dead")
-	if knockbackAffected == true:
+	if knockbackAffected == true and knockback > 0:
 			get_parent().velocity = Vector2.ZERO
 			get_parent().position.x += knockback
 			get_parent().move_and_slide()
