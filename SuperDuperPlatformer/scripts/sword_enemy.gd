@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 @export var damage: int
 @export var knockback: int
 var ogPos: Vector2
+var stillInsideL: bool = false
+var stillInsideR: bool = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,6 +28,14 @@ func _physics_process(delta: float) -> void:
 			print("jumping")
 	move_and_slide()
 
+	while stillInsideL == true:
+		$AttackComponent.attack(damage, knockback)
+		print("I'M DOING THIS")
+		await get_tree().create_timer(1).timeout
+	while stillInsideR == true:
+		$AttackComponent2.attack(damage, knockback)
+		await get_tree().create_timer(1).timeout
+	
 func weapon_aimer():
 	match angleFinder.dir:
 			"forwards":
@@ -43,20 +53,36 @@ func weapon_aimer():
 	pass
 
 func _on_attack_component_area_entered(area: hitboxComponent) -> void:
+	stillInsideL = true
 	$AttackComponent.recipient = area
-	$AttackComponent.attack(damage, knockback)
+	pass # Replace with function body.
+
+func _on_attack_component_area_exited(area: hitboxComponent) -> void:
+	print("STILL INSIDE SHOULD NOT BE TRUE ANYMORE")
+	stillInsideL = false
+	$AttackComponent.recipient = null
 	pass # Replace with function body.
 
 
 func _on_attack_component_2_area_entered(area: hitboxComponent) -> void:
+	stillInsideR = true
 	$AttackComponent2.recipient = area
-	$AttackComponent2.attack(damage, knockback)
+	
 	pass # Replace with function body.
+
+
+func _on_attack_component_2_area_exited(area: hitboxComponent) -> void:
+	stillInsideR = false
+	$AttackComponent2.recipient = null
+	pass # Replace with function body.
+
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	position = ogPos
 	pass # Replace with function body.
+
+
 
 
 func _on_ready() -> void:

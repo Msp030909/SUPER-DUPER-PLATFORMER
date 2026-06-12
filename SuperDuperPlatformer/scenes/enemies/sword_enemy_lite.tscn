@@ -43,7 +43,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhwd4"]
-size = Vector2(20, 4.5)
+size = Vector2(18, 4.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2frt8"]
 size = Vector2(20, 31)
@@ -217,7 +217,7 @@ position = Vector2(0, -5)
 collision_layer = 5
 script = ExtResource("3_mix0h")
 sprites = NodePath("WeaponSprites")
-MAX_CD = 5.0
+MAX_CD = 1.0
 animManager = NodePath("../AnimationManager")
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
@@ -225,9 +225,9 @@ metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 position = Vector2(13.5, -0.5)
 shape = SubResource("RectangleShape2D_60ntw")
 
-[node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent" unique_id=684222664]
-position = Vector2(0, -21)
-rotation = -1.5707964
+[node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent" unique_id=1485112979]
+position = Vector2(13, -1)
+scale = Vector2(0.5625, 1)
 sprite_frames = SubResource("SpriteFrames_uylah")
 animation = &"aidle"
 autoplay = "aidle"
@@ -236,17 +236,17 @@ autoplay = "aidle"
 position = Vector2(0, -5)
 collision_layer = 5
 script = ExtResource("3_mix0h")
-sprites = NodePath("WeaponSprites")
-MAX_CD = 0.5
+sprites = NodePath("WeaponSprites2")
+MAX_CD = 1.0
 metadata/_custom_type_script = "uid://cbmbrm8t7ry4f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent2" unique_id=584095782]
 position = Vector2(0, -19.75)
 shape = SubResource("RectangleShape2D_qhwd4")
 
-[node name="WeaponSprites" type="AnimatedSprite2D" parent="AttackComponent2" unique_id=1485112979]
-position = Vector2(13, -1)
-scale = Vector2(0.5625, 1)
+[node name="WeaponSprites2" type="AnimatedSprite2D" parent="AttackComponent2" unique_id=684222664]
+position = Vector2(0, -21)
+rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_uylah")
 animation = &"aidle"
 autoplay = "aidle"
@@ -300,8 +300,10 @@ atkComponent = NodePath("../AttackComponent")
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="area_entered" from="AttackComponent" to="." method="_on_attack_component_area_entered"]
 [connection signal="area_entered" from="AttackComponent" to="AttackComponent" method="_on_area_entered"]
+[connection signal="area_exited" from="AttackComponent" to="." method="_on_attack_component_area_exited"]
 [connection signal="area_exited" from="AttackComponent" to="AttackComponent" method="_on_area_exited"]
 [connection signal="area_entered" from="AttackComponent2" to="." method="_on_attack_component_2_area_entered"]
 [connection signal="area_entered" from="AttackComponent2" to="AttackComponent2" method="_on_area_entered"]
+[connection signal="area_exited" from="AttackComponent2" to="." method="_on_attack_component_2_area_exited"]
 [connection signal="area_exited" from="AttackComponent2" to="AttackComponent2" method="_on_area_exited"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

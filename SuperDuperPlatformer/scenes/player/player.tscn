@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
-size = Vector2(22, 22)
+size = Vector2(22, 25)
 
 [node name="Player" type="CharacterBody2D" unique_id=1740163399]
 collision_mask = 3
@@ -102,6 +102,7 @@ damage_type = 1
 knockbackAffected = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=273978679]
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_fjrip")
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=919008796]
