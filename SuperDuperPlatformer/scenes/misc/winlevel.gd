@@ -13,9 +13,9 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: hitboxComponent) -> void:
 	if area.get_parent() is Player:
-		Global.level += 1
-	if FileAccess.get_file_as_string("res://scenes/levels/level" + var_to_str(Global.level + 1) + ".tscn"):
-		get_tree().change_scene_to_file("res://scenes/levels/level" + var_to_str(Global.level+ 1) + ".tscn")
-	else:
-		get_tree().change_scene_to_file("res://scenes/misc/title.tscn")
+		if FileAccess.get_file_as_string("res://scenes/levels/level" + var_to_str(Global.level + 1) + ".tscn"):
+			Global.level += 1
+			get_tree().change_scene_to_file("res://scenes/levels/level" + var_to_str(Global.level) + ".tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/misc/title.tscn")
 	pass # Replace with function body.

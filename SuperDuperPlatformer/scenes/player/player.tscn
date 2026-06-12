@@ -44,6 +44,8 @@ size = Vector2(22, 25)
 
 [node name="Player" type="CharacterBody2D" unique_id=1740163399]
 collision_mask = 3
+slide_on_ceiling = false
+floor_max_angle = 0.0
 script = ExtResource("1_4flbx")
 wepDamage = 2.0
 wepKnockback = 10.0
